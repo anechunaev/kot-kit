@@ -1,0 +1,22 @@
+# Editors
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Tests
+coverage
+.nyc_output
+
+# NPM
+node_modules/
+.npm
+
+# Caches
+.awcache*
+
+# Distribution
+dist/

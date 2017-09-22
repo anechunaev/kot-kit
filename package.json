@@ -1,0 +1,40 @@
+{
+  "name": "kot-kit",
+  "version": "1.0.0",
+  "description": "Just another UI kit",
+  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/esm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production node utils/build",
+    "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bungu/kot-kit.git"
+  },
+  "author": "Artem Nechunaev <nechunaev@tutu.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bungu/kot-kit/issues"
+  },
+  "homepage": "https://github.com/bungu/kot-kit#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.29",
+    "@types/react": "^16.0.5",
+    "awesome-typescript-loader": "^3.2.3",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.2",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.7.2",
+    "eslint-plugin-react": "^7.3.0",
+    "file-loader": "^0.11.2",
+    "prop-types": "^15.5.10",
+    "tslint": "^5.7.0",
+    "tslint-react": "^3.2.0",
+    "typescript": "^2.5.2",
+    "webpack": "^3.6.0"
+  }
+}

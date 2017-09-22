@@ -1,0 +1,6 @@
+# Browsers that we support
+
+last 3 versions
+Android >= 4.2
+iOS >= 8
+not IE <= 10
