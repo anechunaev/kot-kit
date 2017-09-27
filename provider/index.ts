@@ -1,0 +1,1 @@
+export { default as ThemeProvider, withStyles } from './theme';

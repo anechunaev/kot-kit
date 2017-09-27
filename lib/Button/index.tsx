@@ -1,7 +1,5 @@
-import * as React from 'react';
+import { withStyles } from 'provider';
+import styles from './style';
+import View from './view';
 
-export interface IProps {
-	className: string;
-}
-
-export default (props: IProps) => <button {...props} />
+export default withStyles(styles)(View);
