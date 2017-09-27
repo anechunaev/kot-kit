@@ -16,6 +16,8 @@ export default (theme: any) => ({
 		backgroundClip: 'padding-box',
 		position: 'relative',
 		backgroundImage: theme.palette.clickable.default.normal,
+		cursor: 'pointer',
+		width: '100%',
 
 		'&::after': {
 			content: '""',
