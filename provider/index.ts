@@ -1,1 +1,1 @@
-export { default as ThemeProvider, withStyles } from './theme';
+export { default as ThemeProvider, withStyles, withThemePatched as withTheme } from './theme';

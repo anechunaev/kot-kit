@@ -1,1 +1,5 @@
-export default {}
+export default {
+	interactive: {
+		borderRadius: 4,
+	}
+}

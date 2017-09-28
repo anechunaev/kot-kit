@@ -1,35 +1,20 @@
 const active = (theme: any) => ({
 	backgroundImage: theme.palette.clickable.default.active,
 	boxShadow: [0, 1, 0, 0, 'rgba(255, 255, 255, .5)'],
-
-	'&::after': {
-		backgroundImage: 'none',
-	},
+	borderColor: 'transparent',
 });
 
 export default (theme: any) => ({
 	wrapper: {
-		...theme.mixins.interactive(), // ToDo: move to GroupItem component
+		...theme.mixins.groupItem(theme),
 		font: theme.fonts.default,
 		color: theme.palette.text.default.normal,
-		border: [1, 'solid', 'transparent'],
-		backgroundClip: 'padding-box',
-		position: 'relative',
+		padding: [6, 15],
+		border: [1, 'solid', '#d2d2d2'],
 		backgroundImage: theme.palette.clickable.default.normal,
+		backgroundClip: 'padding-box',
 		cursor: 'pointer',
 		width: '100%',
-
-		'&::after': {
-			content: '""',
-			position: 'absolute',
-			top: -1,
-			right: -1,
-			bottom: -1,
-			left: -1,
-			background: 'linear-gradient(to bottom, #e7e7e4 0%, #b3b3b2 100%)',
-			zIndex: -1,
-			borderRadius: 4,
-		},
 
 		'&:hover': {
 			backgroundImage: theme.palette.clickable.default.hover,
@@ -42,12 +27,9 @@ export default (theme: any) => ({
 	disabled: {
 		opacity: 0.5,
 		cursor: 'default',
-		borderColor: '#e7e7e4',
 		backgroundImage: theme.palette.clickable.default.normal,
+		borderColor: 'transparent',
 	
-		'&::after': {
-			backgroundImage: 'none',
-		},
 		'&:hover, &:active': {
 			backgroundImage: theme.palette.clickable.default.normal,
 		},
@@ -61,10 +43,7 @@ export default (theme: any) => ({
 	primary: {
 		backgroundImage: theme.palette.clickable.primary.normal,
 		color: theme.palette.text.light.normal,
-
-		'&::after': {
-			backgroundImage: 'none',
-		},
+		borderColor: 'transparent',
 
 		'&:hover': {
 			backgroundImage: theme.palette.clickable.primary.hover,

@@ -1,5 +1,5 @@
-import interactive from './interactive';
+import groupItem from './groupItem';
 
 export default {
-	interactive,
+	groupItem,
 };
