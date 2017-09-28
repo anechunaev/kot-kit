@@ -35,5 +35,12 @@ setAddon(JSXAddon);
 				<Input expanded value="1" readOnly />
 				<Button>+</Button>
 			</Group>
+
+			<h1>Vertical group</h1>
+			<Group vertical>
+				<Input placeholder="Email" type="email" />
+				<Input placeholder="Password" type="password" />
+				<Button>Log in</Button>
+			</Group>
 		</div>
 	))

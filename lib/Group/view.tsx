@@ -1,10 +1,12 @@
 import * as React from 'react';
 import deepmerge from 'deepmerge';
 import { ThemeProvider } from 'provider';
+import * as cn from 'classnames';
 
 export interface IProps {
 	theme: any; // @TODO patch decorator provider/withTheme
 	classes: Dictionary<string>;
+	vertical?: boolean;
 }
 
 class GroupView extends React.Component<IProps> {
@@ -20,7 +22,14 @@ class GroupView extends React.Component<IProps> {
 
 		return (
 			<ThemeProvider theme={groupTheme}>
-				<div className={this.props.classes.group}>{this.props.children}</div>
+				<div
+					className={cn({
+						[this.props.classes.group]: true,
+						[this.props.classes.vertical]: this.props.vertical,
+					})}
+				>
+					{this.props.children}
+				</div>
 			</ThemeProvider>
 		);
 	}
