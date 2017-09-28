@@ -1,3 +1,8 @@
+# Usage
+	import { Button } from 'kot-kit';
+
+	export default props => <Button>Hello world!</Button>
+
 # Props
 | Name | Required | Type | Default value | Description |
 |---|:-:|---|---|---|
@@ -9,3 +14,4 @@
 | elementRef || `React.Ref` | `() => {}` | Функция, которая возвращает ссылку на ноду внешнего элемента кнопки. |
 | target || `string` || Если передан `props.href`, работает как атрибут тега `A`. |
 | primary || `boolean` | `false` | Если клик по кнопке выполняет основной сценарий на странице, то нужно выставить значение `true`. |
+| tabIndex || `number` || Порядок выставления фокуса при навигации с клавиатуры |

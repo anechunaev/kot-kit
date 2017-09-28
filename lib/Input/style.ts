@@ -14,7 +14,7 @@ export default (theme: any) => ({
 		boxSizing: 'border-box',
 		border: [1, 'solid', '#e9e9e9'],
 
-		'&focus': {
+		'&:focus': {
 			boxShadow: '0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 1px 4px 0 #0091e1',
 			borderColor: 'transparent',
 		},

@@ -11,16 +11,14 @@ export interface IProps {
 	onInput?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
 	elementRef?: React.Ref<HTMLInputElement>;
 	disabled?: boolean;
-
 	autoComplete?: boolean;
 	autoFocus?: boolean;
 	maxLength?: number;
 	minLength?: number;
 	name?: string;
-	mask?: string; // or regexp?
+	mask?: string; // or regexp? // @TODO
 	placeholder?: string;
 	readOnly?: boolean;
-	required?: boolean; // ???
 	tabIndex?: number;
 	type?: 'text'|'password'|'email'|'tel'|'number';
 }

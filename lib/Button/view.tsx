@@ -9,6 +9,7 @@ interface IBaseProps {
 	active?: boolean;
 	elementRef?: React.Ref<HTMLButtonElement|HTMLAnchorElement>;
 	primary?: boolean;
+	tabIndex?: number;
 }
 
 export interface IProps extends IBaseProps {
@@ -20,13 +21,14 @@ interface IContainerProps extends IBaseProps {
 	children?: React.ReactNode;
 }
 
-const Container = ({ href, target, children, className, onClick, elementRef, disabled }: IContainerProps) => !!href ? (
+const Container = ({ href, target, children, className, onClick, elementRef, disabled, tabIndex }: IContainerProps) => !!href ? (
 	<a
 		href={href}
 		target={target}
 		className={className}
 		onClick={onClick}
 		ref={elementRef}
+		tabIndex={tabIndex}
 	>
 		{children}
 	</a>
@@ -36,6 +38,7 @@ const Container = ({ href, target, children, className, onClick, elementRef, dis
 		onClick={onClick}
 		ref={elementRef}
 		disabled={disabled}
+		tabIndex={tabIndex}
 	>
 		{children}
 	</button>
@@ -61,6 +64,7 @@ class ButtonView extends React.PureComponent<IProps> {
 			elementRef,
 			target,
 			primary,
+			tabIndex,
 		} = this.props;
 
 		return (
@@ -76,6 +80,7 @@ class ButtonView extends React.PureComponent<IProps> {
 				target={target}
 				elementRef={elementRef}
 				disabled={disabled}
+				tabIndex={tabIndex}
 			>
 				{children}
 			</Container>
