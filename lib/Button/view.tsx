@@ -6,14 +6,15 @@ interface IBaseProps {
 	target?: string;
 	onClick?: (e: React.SyntheticEvent<HTMLButtonElement|HTMLAnchorElement>) => any;
 	disabled?: boolean;
-	active?: boolean;
 	elementRef?: React.Ref<HTMLButtonElement|HTMLAnchorElement>;
-	primary?: boolean;
 	tabIndex?: number;
 }
 
 export interface IProps extends IBaseProps {
 	classes: Dictionary<string>;
+	expanded?: boolean;
+	active?: boolean;
+	primary?: boolean;
 }
 
 interface IContainerProps extends IBaseProps {
@@ -51,6 +52,7 @@ class ButtonView extends React.PureComponent<IProps> {
 		disabled: false,
 		active: false,
 		primary: false,
+		expanded: false,
 	}
 
 	public render() {
@@ -65,6 +67,7 @@ class ButtonView extends React.PureComponent<IProps> {
 			target,
 			primary,
 			tabIndex,
+			expanded,
 		} = this.props;
 
 		return (
@@ -74,6 +77,7 @@ class ButtonView extends React.PureComponent<IProps> {
 					[classes.disabled]: disabled,
 					[classes.active]: active,
 					[classes.primary]: primary,
+					[classes.expanded]: expanded,
 				})}
 				onClick={!disabled ? onClick : () => {}}
 				href={href}

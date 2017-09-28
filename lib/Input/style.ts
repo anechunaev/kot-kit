@@ -4,7 +4,6 @@ export default (theme: any) => ({
 		padding: [6, 15],
 		margin: 0,
 		minWidth: 65,
-		width: '100%',
 		color: theme.palette.text.default.normal,
 		font: theme.fonts.default,
 		background: theme.palette.passive.default,
@@ -29,5 +28,8 @@ export default (theme: any) => ({
 		'&:focus': {
 			boxShadow: '0 0.5px 0 0 rgba(255, 255, 255, 0.5), 0 0.5px 0 0 rgba(255, 255, 255, 0.5), inset 0 0.5px 2px 0 #ffcd00',
 		},
+	},
+	expanded: {
+		width: '100%',
 	},
 })

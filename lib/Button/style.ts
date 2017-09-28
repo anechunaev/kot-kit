@@ -14,7 +14,6 @@ export default (theme: any) => ({
 		backgroundImage: theme.palette.clickable.default.normal,
 		backgroundClip: 'padding-box',
 		cursor: 'pointer',
-		width: '100%',
 
 		'&:hover': {
 			backgroundImage: theme.palette.clickable.default.hover,
@@ -64,5 +63,8 @@ export default (theme: any) => ({
 				backgroundImage: theme.palette.clickable.primary.active,
 			},
 		}
+	},
+	expanded: {
+		width: '100%',
 	},
 });

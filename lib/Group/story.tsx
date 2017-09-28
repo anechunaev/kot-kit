@@ -25,14 +25,14 @@ setAddon(JSXAddon);
 
 			<h1>Mixed group</h1>
 			<Group>
-				<Input placeholder="Search…" />
+				<Input expanded placeholder="Search…" />
 				<Button primary>🔎</Button>
 			</Group>
 
 			<h1>Counter markup</h1>
 			<Group>
 				<Button>–</Button>
-				<Input value="1" readOnly />
+				<Input expanded value="1" readOnly />
 				<Button>+</Button>
 			</Group>
 		</div>

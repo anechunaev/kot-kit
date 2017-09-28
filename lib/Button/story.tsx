@@ -22,7 +22,8 @@ setAddon(JSXAddon);
 				active={boolean('Active', false)}
 				disabled={boolean('Disabled', false)}
 				href={text('Href', '')}
-				target={text('target', '_blank')}
+				target={text('Target (if href exists)', '_blank')}
+				expanded={boolean('Expanded', false)}
 			>
 				{text('Text', 'Default button')}
 			</Button>

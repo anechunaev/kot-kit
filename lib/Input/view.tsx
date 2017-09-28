@@ -21,6 +21,7 @@ export interface IProps {
 	readOnly?: boolean;
 	tabIndex?: number;
 	type?: 'text'|'password'|'email'|'tel'|'number';
+	expanded?: boolean;
 }
 
 class InputView extends React.PureComponent<IProps> {
@@ -37,6 +38,7 @@ class InputView extends React.PureComponent<IProps> {
 		autoFocus: false,
 		readOnly: false,
 		type: 'text',
+		expanded: false,
 	};
 
 	private getElementAttributes(props: IProps) {
@@ -59,12 +61,14 @@ class InputView extends React.PureComponent<IProps> {
 			readOnly,
 			tabIndex,
 			type,
+			expanded,
 		} = props;
 
 		const result: any = {
 			className: cn({
 				[classes.input]: true,
 				[classes.invalid]: invalid,
+				[classes.expanded]: expanded,
 			}),
 			ref: elementRef,
 			defaultValue,
