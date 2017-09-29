@@ -1,0 +1,41 @@
+import * as React from 'react';
+import { setAddon, storiesOf } from '@storybook/react';
+import withReadme from 'storybook-readme/with-readme';
+import readme from './readme.md';
+import { withStyles } from 'provider';
+
+import View from './index';
+
+import JSXAddon from 'storybook-addon-jsx';
+
+const Story = withStyles(() => ({
+	grid: {
+		composes: '$base',
+		border: [3, 'dashed', 'rgba(0,0,0,.5)'],
+		borderRadius: 10,
+		background: 'rgba(0,0,0,.2)',
+		flexWrap: 'wrap',
+	},
+	base: {
+		padding: [10, 15],
+		boxSizing: 'border-box',
+	}
+}))(({ classes }: any) => (
+	<div>
+		<h1>Grid example</h1>
+		<View className={classes.grid}>
+			<View width={1/3} className={classes.grid}>1/3</View>
+			<View width={2/3} className={classes.grid}>
+				<View className={classes.base}>2/3</View>
+				<View width={1/2} className={classes.grid}>1/2</View>
+				<View width={1/2} className={classes.grid}>1/2</View>
+			</View>
+		</View>
+	</div>
+));
+
+setAddon(JSXAddon);
+
+(storiesOf('Atoms/View', module) as any)
+	.addDecorator(withReadme(readme))
+	.addWithJSX('Default', () => <Story />)

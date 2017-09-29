@@ -13,7 +13,7 @@ class GroupView extends React.Component<IProps> {
 	public render() {
 		const groupTheme = deepmerge(this.props.theme, {
 			mixins: {
-				groupItem: () => ({
+				groupItem: (): any => ({
 					...this.props.theme.mixins.groupItem(this.props.theme),
 					borderRadius: 0,
 				})

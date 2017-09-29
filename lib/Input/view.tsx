@@ -26,7 +26,6 @@ export interface IProps {
 
 class InputView extends React.PureComponent<IProps> {
 	public static defaultProps = {
-		defaultValue: '',
 		value: '',
 		invalid: false,
 		onFocus: () => {},
