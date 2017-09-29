@@ -13,7 +13,7 @@ const Story = withStyles(() => ({
 		composes: '$base',
 		border: [3, 'dashed', 'rgba(0,0,0,.5)'],
 		borderRadius: 10,
-		background: 'rgba(0,0,0,.2)',
+		background: 'rgba(0,50,100,.15)',
 		flexWrap: 'wrap',
 	},
 	base: {
@@ -30,6 +30,18 @@ const Story = withStyles(() => ({
 				<View width={1/2} className={classes.grid}>1/2</View>
 				<View width={1/2} className={classes.grid}>1/2</View>
 			</View>
+		</View>
+		<View className={classes.grid}>
+			<View width={1/4} className={classes.grid}>1/4</View>
+			<View width={1/4} className={classes.grid}>1/4</View>
+			<View width={1/4} className={classes.grid}>1/4</View>
+			<View width={1/4} className={classes.grid}>1/4</View>
+		</View>
+		<View className={classes.grid}>
+			<View width={1/6} className={classes.grid}>1/6</View>
+			<View width={1/6} className={classes.grid}>1/6</View>
+			<View width={5/12} className={classes.grid}>5/12</View>
+			<View width={3/12} className={classes.grid}>3/12</View>
 		</View>
 	</div>
 ));
