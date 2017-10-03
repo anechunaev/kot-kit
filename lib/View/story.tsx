@@ -7,11 +7,12 @@ import { withStyles } from 'provider';
 import View from './index';
 
 import JSXAddon from 'storybook-addon-jsx';
+import Text from '../Text';
 
 const Story = withStyles(() => ({
 	grid: {
 		composes: '$base',
-		border: [3, 'dashed', 'rgba(0,0,0,.5)'],
+		border: [3, 'solid', 'rgba(0,0,0,.5)'],
 		borderRadius: 10,
 		background: 'rgba(0,50,100,.15)',
 		flexWrap: 'wrap',
@@ -21,8 +22,8 @@ const Story = withStyles(() => ({
 		boxSizing: 'border-box',
 	}
 }))(({ classes }: any) => (
-	<div>
-		<h1>Grid example</h1>
+	<View>
+		<Text header large>Grid example</Text>
 		<View className={classes.grid}>
 			<View width={1/3} className={classes.grid}>1/3</View>
 			<View width={2/3} className={classes.grid}>
@@ -43,7 +44,7 @@ const Story = withStyles(() => ({
 			<View width={5/12} className={classes.grid}>5/12</View>
 			<View width={3/12} className={classes.grid}>3/12</View>
 		</View>
-	</div>
+	</View>
 ));
 
 setAddon(JSXAddon);

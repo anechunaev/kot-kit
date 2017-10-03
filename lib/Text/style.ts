@@ -5,6 +5,7 @@ export default (theme: any) => ({
 	},
 	header: {
 		display: 'block',
+		width: '100%',
 		font: '600 18px/1.22 sans-serif',
 	},
 	paragraph: {

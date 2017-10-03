@@ -8,6 +8,9 @@ import Button from '../Button';
 import Input from '../Input';
 import Group from './index';
 
+import ViewBox from '../View';
+import Text from '../Text';
+
 import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
@@ -16,31 +19,45 @@ setAddon(JSXAddon);
 	.addDecorator(withKnobs)
 	.addDecorator(withReadme(readme))
 	.addWithJSX('Default', () => (
-		<div>
-			<h1>Group of buttons</h1>
-			<Group>
-				<Button>М</Button>
-				<Button>Ж</Button>
-			</Group>
+		<ViewBox>
+			<ViewBox width={1}>
+				<Text header large>Group of buttons</Text>
+				<Group>
+					<Button toggled>М</Button>
+					<Button>Ж</Button>
+				</Group>
+			</ViewBox>
+			<ViewBox width={1}>
+				<Group>
+					<Button>М</Button>
+					<Button toggled alternate>Ж</Button>
+				</Group>
+			</ViewBox>
 
-			<h1>Mixed group</h1>
-			<Group>
-				<Input expanded placeholder="Search…" />
-				<Button primary>🔎</Button>
-			</Group>
+			<ViewBox width={1}>
+				<Text header large>Mixed group</Text>
+				<Group>
+					<Input expanded placeholder="Search…" />
+					<Button primary>🔎</Button>
+				</Group>
+			</ViewBox>
 
-			<h1>Counter markup</h1>
-			<Group>
-				<Button>–</Button>
-				<Input expanded value="1" readOnly />
-				<Button>+</Button>
-			</Group>
+			<ViewBox width={1}>
+				<Text header large>Counter markup</Text>
+				<Group>
+					<Button>–</Button>
+					<Input expanded value="1" readOnly />
+					<Button>+</Button>
+				</Group>
+			</ViewBox>
 
-			<h1>Vertical group</h1>
-			<Group vertical>
-				<Input placeholder="Email" type="email" />
-				<Input placeholder="Password" type="password" />
-				<Button>Log in</Button>
-			</Group>
-		</div>
+			<ViewBox width={1}>
+				<Text header large>Vertical group</Text>
+				<Group vertical>
+					<Input placeholder="Email" type="email" />
+					<Input placeholder="Password" type="password" />
+					<Button>Log in</Button>
+				</Group>
+			</ViewBox>
+		</ViewBox>
 	))

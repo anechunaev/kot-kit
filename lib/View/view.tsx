@@ -6,6 +6,7 @@ export interface IProps {
 	className?: string;
 	width?: number;
 	elementRef?: React.Ref<HTMLDivElement>;
+	nowrap?: boolean;
 }
 
 class View extends React.Component<IProps> {
@@ -21,6 +22,7 @@ class View extends React.Component<IProps> {
 			<div
 				className={cn({
 					[this.props.classes.wrapper]: true,
+					[this.props.classes.nowrap]: this.props.nowrap,
 					[this.props.className || '']: !!this.props.className,
 				})}
 				ref={this.props.elementRef}

@@ -3,6 +3,8 @@ import deepmerge from 'deepmerge';
 import { ThemeProvider } from 'provider';
 import * as cn from 'classnames';
 
+import ViewBox from '../View';
+
 export interface IProps {
 	theme: any; // @TODO patch decorator provider/withTheme
 	classes: Dictionary<string>;
@@ -22,14 +24,15 @@ class GroupView extends React.Component<IProps> {
 
 		return (
 			<ThemeProvider theme={groupTheme}>
-				<div
+				<ViewBox
+					nowrap
 					className={cn({
 						[this.props.classes.group]: true,
 						[this.props.classes.vertical]: this.props.vertical,
 					})}
 				>
 					{this.props.children}
-				</div>
+				</ViewBox>
 			</ThemeProvider>
 		);
 	}

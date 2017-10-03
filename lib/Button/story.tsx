@@ -15,17 +15,17 @@ setAddon(JSXAddon);
 	.addDecorator(withKnobs)
 	.addDecorator(withReadme(readme))
 	.addWithJSX('Default', () => (
-		<div>
-			<Button
-				onClick={action('Button clicked')}
-				primary={boolean('Primary', false)}
-				active={boolean('Active', false)}
-				disabled={boolean('Disabled', false)}
-				href={text('Href', '')}
-				target={text('Target (if href exists)', '_blank')}
-				expanded={boolean('Expanded', false)}
-			>
-				{text('Text', 'Default button')}
-			</Button>
-		</div>
+		<Button
+			onClick={action('Button clicked')}
+			primary={boolean('Primary', false)}
+			active={boolean('Active', false)}
+			disabled={boolean('Disabled', false)}
+			href={text('Href', '')}
+			target={text('Target (if href exists)', '_blank')}
+			expanded={boolean('Expanded', false)}
+			toggled={boolean('Toggled', false)}
+			alternate={boolean('Alternate', false)}
+		>
+			{text('Text', 'Default button')}
+		</Button>
 	))

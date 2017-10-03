@@ -15,6 +15,8 @@ export interface IProps extends IBaseProps {
 	expanded?: boolean;
 	active?: boolean;
 	primary?: boolean;
+	toggled?: boolean;
+	alternate?: boolean;
 }
 
 interface IContainerProps extends IBaseProps {
@@ -68,6 +70,8 @@ class ButtonView extends React.PureComponent<IProps> {
 			primary,
 			tabIndex,
 			expanded,
+			toggled,
+			alternate,
 		} = this.props;
 
 		return (
@@ -78,6 +82,8 @@ class ButtonView extends React.PureComponent<IProps> {
 					[classes.active]: active,
 					[classes.primary]: primary,
 					[classes.expanded]: expanded,
+					[classes.toggled]: toggled,
+					[classes.alternate]: alternate,
 				})}
 				onClick={!disabled ? onClick : () => {}}
 				href={href}

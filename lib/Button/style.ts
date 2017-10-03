@@ -14,6 +14,7 @@ export default (theme: any) => ({
 		backgroundImage: theme.palette.clickable.default.normal,
 		backgroundClip: 'padding-box',
 		cursor: 'pointer',
+		textShadow: '0 1px 0 rgba(255, 255, 255, 0.6)',
 
 		'&:hover': {
 			backgroundImage: theme.palette.clickable.default.hover,
@@ -43,6 +44,7 @@ export default (theme: any) => ({
 		backgroundImage: theme.palette.clickable.primary.normal,
 		color: theme.palette.text.light.normal,
 		borderColor: 'transparent',
+		textShadow: '0 -0.5px 0 rgba(0, 0, 0, 0.15)',
 
 		'&:hover': {
 			backgroundImage: theme.palette.clickable.primary.hover,
@@ -66,5 +68,15 @@ export default (theme: any) => ({
 	},
 	expanded: {
 		width: '100%',
+	},
+	toggled: {
+		backgroundImage: 'linear-gradient(to top, #c6e7f3, #6cb4ce)',
+		boxShadow: 'inset 0 1px 3px 0 rgba(0, 46, 88, 0.33)',
+		borderColor: 'transparent',
+	},
+	alternate: {
+		'&$toggled': {
+			backgroundImage: 'linear-gradient(to top, #fed0e4, #da77a1)',
+		},
 	},
 });
