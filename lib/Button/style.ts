@@ -1,7 +1,8 @@
 const active = (theme: any) => ({
 	backgroundImage: theme.palette.clickable.default.active,
 	boxShadow: [0, 1, 0, 0, 'rgba(255, 255, 255, .5)'],
-	borderColor: 'transparent',
+	border: 'none',
+	padding: [7, 16]
 });
 
 export default (theme: any) => ({
@@ -28,7 +29,8 @@ export default (theme: any) => ({
 		opacity: 0.5,
 		cursor: 'default',
 		backgroundImage: theme.palette.clickable.default.normal,
-		borderColor: 'transparent',
+		border: 'none',
+		padding: [7, 16],
 	
 		'&:hover, &:active': {
 			backgroundImage: theme.palette.clickable.default.normal,
@@ -43,7 +45,8 @@ export default (theme: any) => ({
 	primary: {
 		backgroundImage: theme.palette.clickable.primary.normal,
 		color: theme.palette.text.light.normal,
-		borderColor: 'transparent',
+		border: 'none',
+		padding: [7, 16],
 		textShadow: '0 -0.5px 0 rgba(0, 0, 0, 0.15)',
 
 		'&:hover': {
@@ -72,11 +75,18 @@ export default (theme: any) => ({
 	toggled: {
 		backgroundImage: 'linear-gradient(to top, #c6e7f3, #6cb4ce)',
 		boxShadow: 'inset 0 1px 3px 0 rgba(0, 46, 88, 0.33)',
-		borderColor: 'transparent',
+		border: 'none',
+		padding: [7, 16],
+		'&:hover': {
+			backgroundImage: 'linear-gradient(to top, #c6e7f3, #6cb4ce)',
+		},
 	},
 	alternate: {
 		'&$toggled': {
 			backgroundImage: 'linear-gradient(to top, #fed0e4, #da77a1)',
+			'&:hover': {
+				backgroundImage: 'linear-gradient(to top, #fed0e4, #da77a1)',
+			},
 		},
 	},
 });
