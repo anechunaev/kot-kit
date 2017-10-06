@@ -35,7 +35,7 @@ setAddon(JSXAddon);
 			</ViewBox>
 
 			<ViewBox width={1}>
-				<Text header large>Mixed group</Text>
+				<Text header large>Mixed items</Text>
 				<Group>
 					<Input expanded placeholder="Search…" />
 					<Button primary>🔎</Button>
@@ -57,6 +57,26 @@ setAddon(JSXAddon);
 					<Input placeholder="Email" type="email" />
 					<Input placeholder="Password" type="password" />
 					<Button>Log in</Button>
+				</Group>
+			</ViewBox>
+
+			<ViewBox width={1}>
+				<Text header large>Mixed group</Text>
+				<Group vertical>
+					<Group>
+						<Button expanded toggled>Log in</Button>
+						<Button expanded>Register</Button>
+					</Group>
+					<Input placeholder="Email" type="email" />
+					<Input placeholder="Password" type="password" />
+					<Button>Log in</Button>
+				</Group>
+				<Group>
+					<Input value={12} expanded />
+					<Group vertical width={1/20}>
+						<Button>↑</Button>
+						<Button>↓</Button>
+					</Group>
 				</Group>
 			</ViewBox>
 		</ViewBox>

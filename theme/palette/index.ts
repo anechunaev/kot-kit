@@ -35,8 +35,8 @@ export default {
 		alternative: '#f3faf3',
 		accent: '#f4f3db',
 		success: '#c7e98c',
-		danger: '',
-		warning: '',
+		danger: 'linear-gradient(to bottom, #fd6c6c, #e64b4b)',
+		warning: 'linear-gradient(to bottom, #ffe879, #ffdb5f)',
 	},
 	link: {
 		default: {
