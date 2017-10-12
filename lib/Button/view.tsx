@@ -1,30 +1,12 @@
 import * as React from 'react';
 import * as cn from 'classnames';
-
-interface IBaseProps {
-	href?: string;
-	target?: string;
-	onClick?: (e: React.SyntheticEvent<HTMLButtonElement|HTMLAnchorElement>) => any;
-	disabled?: boolean;
-	elementRef?: React.Ref<HTMLButtonElement|HTMLAnchorElement>;
-	tabIndex?: number;
-}
+import { IProps as IBaseProps } from './index';
 
 export interface IProps extends IBaseProps {
 	classes: Dictionary<string>;
-	expanded?: boolean;
-	active?: boolean;
-	primary?: boolean;
-	toggled?: boolean;
-	alternate?: boolean;
 }
 
-interface IContainerProps extends IBaseProps {
-	className?: string;
-	children?: React.ReactNode;
-}
-
-const Container = ({ href, target, children, className, onClick, elementRef, disabled, tabIndex }: IContainerProps) => !!href ? (
+const Container: React.SFC<IBaseProps> = ({ href, target, children, className, onClick, elementRef, disabled, tabIndex }) => !!href ? (
 	<a
 		href={href}
 		target={target}

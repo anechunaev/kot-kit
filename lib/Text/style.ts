@@ -1,6 +1,6 @@
 export default (theme: any) => ({
 	base: {
-		color: theme.palette.text.normal,
+		color: theme.context.text.color.normal,
 		font: '400 15px/1.33 sans-serif',
 	},
 	header: {

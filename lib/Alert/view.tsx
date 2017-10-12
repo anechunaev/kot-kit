@@ -1,15 +1,12 @@
 import * as React from 'react';
 import * as cn from 'classnames';
+import { IProps as IBaseProps } from './index';
 
 import Panel from '../Panel';
 import Text from '../Text';
 
-export interface IProps {
+export interface IProps extends IBaseProps {
 	classes: Dictionary<string>;
-	className?: string;
-	withMargin?: boolean;
-	danger?: boolean;
-	title?: string;
 }
 
 class PanelView extends React.Component<IProps> {

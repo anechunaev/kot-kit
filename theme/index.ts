@@ -10,4 +10,11 @@ export default {
 	palette,
 	colors,
 	variables,
+	context: {
+		text: {
+			color: palette.text.default,
+			font: fonts.default,
+		}
+	},
+	hash: Date.now()
 };

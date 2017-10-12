@@ -9,7 +9,7 @@ export default (theme: any) => ({
 	wrapper: {
 		...theme.mixins.groupItem(theme),
 		font: theme.fonts.default,
-		color: theme.palette.text.default.normal,
+		color: theme.context.text.color.normal,
 		padding: [6, 15],
 		border: [1, 'solid', '#d2d2d2'],
 		backgroundImage: theme.palette.clickable.default.normal,
@@ -44,7 +44,7 @@ export default (theme: any) => ({
 	},
 	primary: {
 		backgroundImage: theme.palette.clickable.primary.normal,
-		color: theme.palette.text.light.normal,
+		color: theme.context.text.color.normal,
 		border: 'none',
 		padding: [7, 16],
 		textShadow: '0 -0.5px 0 rgba(0, 0, 0, 0.15)',

@@ -4,6 +4,6 @@ export default (theme: any) => ({
 	},
 	danger: {
 		background: theme.palette.passive.danger,
-		color: theme.palette.text.light.normal,
+		color: theme.context.text.color.normal,
 	}
 })

@@ -77,7 +77,7 @@ export default {
 			active: '',
 		},
 		dark: {
-			normal: '',
+			normal: '#000000',
 			hover: '',
 			active: '',
 		},
