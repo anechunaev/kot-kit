@@ -9,6 +9,7 @@ import Input from '../Input';
 import Group from './index';
 
 import ViewBox from '../View';
+import Panel from '../Panel';
 import Text from '../Text';
 
 import JSXAddon from 'storybook-addon-jsx';
@@ -22,62 +23,76 @@ setAddon(JSXAddon);
 		<ViewBox>
 			<ViewBox width={1}>
 				<Text header large>Group of buttons</Text>
-				<Group>
-					<Button toggled>М</Button>
-					<Button>Ж</Button>
-				</Group>
+				<Panel withShadow={false} withMargin={false}>
+					<Group>
+						<Button toggled>М</Button>
+						<Button>Ж</Button>
+					</Group>
+				</Panel>
 			</ViewBox>
 			<ViewBox width={1}>
-				<Group>
-					<Button>М</Button>
-					<Button toggled alternate>Ж</Button>
-				</Group>
+				<Panel withShadow={false} withMargin={false}>
+					<Group>
+						<Button>М</Button>
+						<Button toggled alternate>Ж</Button>
+					</Group>
+				</Panel>
 			</ViewBox>
 
 			<ViewBox width={1}>
 				<Text header large>Mixed items</Text>
-				<Group>
-					<Input expanded placeholder="Search…" />
-					<Button primary>🔎</Button>
-				</Group>
+				<Panel withShadow={false} withMargin={false}>
+					<Group>
+						<Input expanded placeholder="Search…" />
+						<Button primary>🔎</Button>
+					</Group>
+				</Panel>
 			</ViewBox>
 
 			<ViewBox width={1}>
 				<Text header large>Counter markup</Text>
-				<Group>
-					<Button>–</Button>
-					<Input expanded value="1" readOnly />
-					<Button>+</Button>
-				</Group>
+				<Panel withShadow={false} withMargin={false}>
+					<Group>
+						<Button>–</Button>
+						<Input expanded value="1" readOnly />
+						<Button>+</Button>
+					</Group>
+				</Panel>
 			</ViewBox>
 
 			<ViewBox width={1}>
 				<Text header large>Vertical group</Text>
-				<Group vertical>
-					<Input placeholder="Email" type="email" />
-					<Input placeholder="Password" type="password" />
-					<Button>Log in</Button>
-				</Group>
+				<Panel withShadow={false} withMargin={false}>
+					<Group vertical>
+						<Input placeholder="Email" type="email" />
+						<Input placeholder="Password" type="password" />
+						<Button>Log in</Button>
+					</Group>
+				</Panel>
 			</ViewBox>
 
 			<ViewBox width={1}>
 				<Text header large>Mixed group</Text>
-				<Group vertical>
+				<Panel withShadow={false} withMargin={false}>
+					<Group vertical>
+						<Group>
+							<Button expanded toggled>Log in</Button>
+							<Button expanded>Register</Button>
+						</Group>
+						<Input placeholder="Email" type="email" />
+						<Input placeholder="Password" type="password" />
+						<Button>Log in</Button>
+					</Group>
+				</Panel>
+				<Panel withShadow={false} withMargin={false}>
 					<Group>
-						<Button expanded toggled>Log in</Button>
-						<Button expanded>Register</Button>
+						<Input value={12} expanded />
+						<Group vertical width={1/20}>
+							<Button>↑</Button>
+							<Button>↓</Button>
+						</Group>
 					</Group>
-					<Input placeholder="Email" type="email" />
-					<Input placeholder="Password" type="password" />
-					<Button>Log in</Button>
-				</Group>
-				<Group>
-					<Input value={12} expanded />
-					<Group vertical width={1/20}>
-						<Button>↑</Button>
-						<Button>↓</Button>
-					</Group>
-				</Group>
+				</Panel>
 			</ViewBox>
 		</ViewBox>
 	))

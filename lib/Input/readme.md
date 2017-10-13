@@ -1,3 +1,5 @@
+# Description
+
 # Usage
 	import { Input } from 'kot-kit';
 

@@ -1,3 +1,5 @@
+# Description
+
 # Usage
 	import { Alert, Text } from 'kot-kit';
 

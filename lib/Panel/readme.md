@@ -1,3 +1,5 @@
+# Description
+
 # Usage
 	import { Panel } from 'kot-kit';
 
