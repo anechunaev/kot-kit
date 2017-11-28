@@ -54,3 +54,8 @@ declare module 'jss-preset-default' {
 	const preset: () => void;
 	export default preset;
 }
+
+declare module 'classnames' {
+	const cn: (c: any, c2?: any) => string;
+	export default cn;
+}

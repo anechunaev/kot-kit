@@ -28,6 +28,8 @@
     "no-consecutive-blank-lines": [false],
     "jsx-no-multiline-js": false,
     "jsx-boolean-value": false,
-    "jsx-wrap-multiline": true
+    "jsx-wrap-multiline": true,
+    "object-literal-key-quotes": false,
+    "no-submodule-imports": false
   }
 }

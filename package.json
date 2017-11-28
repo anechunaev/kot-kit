@@ -7,7 +7,7 @@
   "module": "dist/esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production node utils/build",
+    "build": "cross-env NODE_ENV=production rollup -c config/rollup.config.js",
     "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json",
     "storybook": "start-storybook -p 9001 -c config/storybook"
   },
@@ -40,13 +40,16 @@
     "babel-preset-es2015": "^6.24.1",
     "chalk": "^2.1.0",
     "cross-env": "^5.0.5",
-    "deepmerge": "^1.5.2",
     "eslint": "^4.7.2",
     "eslint-plugin-react": "^7.3.0",
     "file-loader": "^0.11.2",
     "minimist": "^1.2.0",
     "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
+    "rollup": "^0.52.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-typescript2": "^0.8.4",
     "storybook-addon-jsx": "^4.1.1",
     "storybook-readme": "^3.0.6",
     "tslint": "^5.7.0",
@@ -54,10 +57,11 @@
     "typescript": "^2.5.2",
     "webpack": "^3.6.0"
   },
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "classnames": "^2.2.5",
     "deepmerge": "^1.5.2",
-    "jss": "^9.0.0-pre.3",
+    "jss": "^8.1.0",
     "jss-preset-default": "^3.0.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",

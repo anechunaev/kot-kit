@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as cn from 'classnames';
+import cn from 'classnames';
 
 export interface IProps {
 	classes: Dictionary<string>,
@@ -20,7 +20,7 @@ export interface IProps {
 	placeholder?: string;
 	readOnly?: boolean;
 	tabIndex?: number;
-	type?: 'text'|'password'|'email'|'tel'|'number';
+	type?: 'text' | 'password' | 'email' | 'tel' | 'number';
 	expanded?: boolean;
 }
 

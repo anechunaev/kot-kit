@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as classNames from 'classnames';
+import cn from 'classnames';
 import { IProps as IBaseProps, defaultProps } from './index';
 
 export interface IProps extends IBaseProps {
@@ -8,7 +8,7 @@ export interface IProps extends IBaseProps {
 
 const SpinnerView: React.SFC<IProps> = ({ classes, className, count = defaultProps.count }) => (
 	<div
-		className={classNames(classes.wrapper, className)}
+		className={cn(classes.wrapper, className)}
 		role="progressbar"
 	>
 		{new Array(count).join().split(',').map((_, index) => (
@@ -16,8 +16,8 @@ const SpinnerView: React.SFC<IProps> = ({ classes, className, count = defaultPro
 				key={index}
 				className={classes.indicator}
 				style={{
-					transform: `rotate(${360 * (index/count)}deg)`,
-					animationDelay: 1/count * index + 's',
+					transform: `rotate(${360 * (index / count)}deg)`,
+					animationDelay: 1 / count * index + 's',
 				}}
 			/>
 		))}

@@ -17,6 +17,7 @@ node_modules/
 
 # Caches
 .awcache*
+.rpt2_cache/
 
 # Distribution
 dist/

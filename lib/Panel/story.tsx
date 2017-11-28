@@ -5,8 +5,8 @@ import JSXAddon from 'storybook-addon-jsx';
 import withReadme from 'storybook-readme/with-readme';
 import readme from './readme.md';
 
-import Panel from './index';
-import Text from '../Text';
+import Panel from 'lib/Panel';
+import Text from 'lib/Text';
 
 setAddon(JSXAddon);
 

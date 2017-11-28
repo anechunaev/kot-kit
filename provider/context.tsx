@@ -13,7 +13,7 @@ class ContextProvider extends React.Component<IProps> {
 	public render() {
 		const { theme, children, primary, secondary, light, dark } = this.props;
 
-		const patchedTheme = Object.assign({}, theme);
+		const patchedTheme = {...theme};
 
 		if (secondary && !primary) {
 			// secondary context

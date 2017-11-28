@@ -8,9 +8,9 @@ const EnhancedView = withStyles(styles)(View);
 export interface IProps {
 	href?: string;
 	target?: string;
-	onClick?: (e: React.SyntheticEvent<HTMLButtonElement|HTMLAnchorElement>) => any;
+	onClick?: (e: React.SyntheticEvent<HTMLButtonElement | HTMLAnchorElement>) => any;
 	disabled?: boolean;
-	elementRef?: React.Ref<HTMLButtonElement|HTMLAnchorElement>;
+	elementRef?: React.Ref<HTMLButtonElement | HTMLAnchorElement>;
 	tabIndex?: number;
 	expanded?: boolean;
 	active?: boolean;

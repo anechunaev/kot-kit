@@ -29,7 +29,7 @@ setAddon(JSXAddon);
 			name={text('Name', '')}
 			placeholder={text('Placeholder', 'Placeholder')}
 			readOnly={boolean('Readonly', false)}
-			type={select('Type', ['text','password','email','tel','number'], 'text')}
+			type={select('Type', ['text', 'password', 'email', 'tel', 'number'], 'text')}
 			expanded={boolean('Expanded', false)}
 		/>
 	))

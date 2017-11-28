@@ -4,11 +4,11 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import withReadme from 'storybook-readme/with-readme';
 import readme from './readme.md';
 
-import Text from './index';
+import Text from 'lib/Text';
 
 import JSXAddon from 'storybook-addon-jsx';
 
-import ViewBox from '../View';
+import ViewBox from 'lib/View';
 
 setAddon(JSXAddon);
 

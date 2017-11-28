@@ -12,7 +12,7 @@ export default (theme: any) => ({
 		position: 'absolute',
 		width: ({ width = defaultProps.width }) => width,
 		height: ({ length = defaultProps.length }) => length,
-		left: ({ width = defaultProps.width }) => `calc(50% - ${width/2}px)`,
+		left: ({ width = defaultProps.width }) => `calc(50% - ${width / 2}px)`,
 		top: ({ length = defaultProps.length, innerRadius = defaultProps.innerRadius}) => `calc(50% - ${length + innerRadius}px)`,
 		borderRadius: ({ borderRadius = defaultProps.borderRadius }) => borderRadius,
 		backgroundColor: theme.context.text.color.normal,

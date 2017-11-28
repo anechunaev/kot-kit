@@ -4,13 +4,13 @@ import { withKnobs } from '@storybook/addon-knobs';
 import withReadme from 'storybook-readme/with-readme';
 import readme from './readme.md';
 
-import Button from '../Button';
-import Input from '../Input';
-import Group from './index';
+import Button from 'lib/Button';
+import Input from 'lib/Input';
+import Group from 'lib/Group';
 
-import ViewBox from '../View';
-import Panel from '../Panel';
-import Text from '../Text';
+import ViewBox from 'lib/View';
+import Panel from 'lib/Panel';
+import Text from 'lib/Text';
 
 import JSXAddon from 'storybook-addon-jsx';
 
@@ -87,7 +87,7 @@ setAddon(JSXAddon);
 				<Panel withShadow={false} withMargin={false}>
 					<Group>
 						<Input value={12} expanded />
-						<Group vertical width={1/20}>
+						<Group vertical width={1 / 20}>
 							<Button>↑</Button>
 							<Button>↓</Button>
 						</Group>

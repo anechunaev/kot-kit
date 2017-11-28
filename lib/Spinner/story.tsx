@@ -5,8 +5,8 @@ import JSXAddon from 'storybook-addon-jsx';
 import withReadme from 'storybook-readme/with-readme';
 import readme from './readme.md';
 
-import Spinner from './index';
-import Button from '../Button';
+import Spinner from 'lib/Spinner';
+import Button from 'lib/Button';
 
 setAddon(JSXAddon);
 

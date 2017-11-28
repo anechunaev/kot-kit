@@ -1,7 +1,7 @@
 import * as React from 'react';
 import deepmerge from 'deepmerge';
 import { ThemeProvider } from 'provider';
-import * as cn from 'classnames';
+import cn from 'classnames';
 
 import ViewBox from '../View';
 

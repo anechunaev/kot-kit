@@ -5,7 +5,7 @@ import withReadme from 'storybook-readme/with-readme';
 import { action } from '@storybook/addon-actions';
 import readme from './readme.md';
 
-import Button from './index';
+import Button from 'lib/Button';
 
 import JSXAddon from 'storybook-addon-jsx';
 

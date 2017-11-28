@@ -5,9 +5,9 @@ import JSXAddon from 'storybook-addon-jsx';
 import withReadme from 'storybook-readme/with-readme';
 import readme from './readme.md';
 
-import Alert from './index';
-import Text from '../Text';
-import Button from '../Button';
+import Alert from 'lib/Alert';
+import Text from 'lib/Text';
+import Button from 'lib/Button';
 
 setAddon(JSXAddon);
 
