@@ -10,5 +10,5 @@ export default ({ children, theme }: any) => (
 	</ThemeProvider>
 );
 
-export const withStyles = (styles: any) => (component: React.ComponentType) => injectStyles(styles, { theming })(component);
+export const withStyles = (styles: any) => (component: React.ComponentType<any>) => injectStyles(styles, { theming })(component);
 export const withThemePatched = withTheme;

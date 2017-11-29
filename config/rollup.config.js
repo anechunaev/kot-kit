@@ -2,16 +2,19 @@
 import tsLoader from 'rollup-plugin-typescript2';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
+import uglify from 'rollup-plugin-uglify';
+import { minify } from 'uglify-es';
+import visualizer from 'rollup-plugin-visualizer';
 
 export default {
 	input: 'entries/lib.ts',
 	output: [
 		{
-			file: 'dist/index.js',
+			file: 'dist/lib.js',
 			format: 'umd',
 		},
 		{
-			file: 'dist/esm.js',
+			file: 'dist/lib-es.js',
 			format: 'es',
 		},
 	],
@@ -53,5 +56,7 @@ export default {
 			},
 		}),
 		tsLoader(),
+		uglify({}, minify),
+		visualizer({ filename: './dist/stats.html' }),
 	],
 }

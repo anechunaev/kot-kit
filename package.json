@@ -50,11 +50,14 @@
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-typescript2": "^0.8.4",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-plugin-visualizer": "^0.3.1",
     "storybook-addon-jsx": "^4.1.1",
     "storybook-readme": "^3.0.6",
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0",
-    "typescript": "^2.5.2",
+    "typescript": "^2.6.2",
+    "uglify-es": "^3.2.0",
     "webpack": "^3.6.0"
   },
   "dependencies": {},
@@ -63,8 +66,8 @@
     "deepmerge": "^1.5.2",
     "jss": "^8.1.0",
     "jss-preset-default": "^3.0.0",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-jss": "^7.2.0"
   }
 }
