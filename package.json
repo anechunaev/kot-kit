@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Just another UI kit",
   "private": true,
-  "main": "dist/index.js",
-  "module": "dist/esm.js",
+  "main": "dist/lib.js",
+  "module": "dist/lib-es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production rollup -c config/rollup.config.js",
+    "build": "cross-env NODE_ENV=production node utils/build",
     "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json",
     "storybook": "start-storybook -p 9001 -c config/storybook"
   },
