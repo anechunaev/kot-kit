@@ -36,9 +36,13 @@
     "node_modules",
     "dist",
     "utils",
-	"config",
-	"showcase/config",
-	"showcase/dist",
-	"showcase/utils"
-  ]
+    "config",
+    "showcase/config",
+    "showcase/dist",
+    "showcase/utils"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "useTranspileModule": true
+  }
 }

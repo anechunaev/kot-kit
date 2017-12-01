@@ -23,7 +23,7 @@
     "deepmerge": "^2.0.1",
     "jss": "^9.3.3",
     "jss-preset-default": "^4.0.1",
-    "kot-kit": "../",
+    "kot-kit": "file:../",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-jss": "^8.1.0",

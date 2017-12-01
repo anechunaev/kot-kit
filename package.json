@@ -8,7 +8,7 @@
   "types": "dist/entries/lib.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production node utils/build",
+    "build": "cross-env NODE_ENV=production rollup -c",
     "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json",
     "showcase": "cd showcase && npm start"
   },
