@@ -3,8 +3,8 @@ const rollup = require('rollup');
 const tsLoader = require('rollup-plugin-typescript2');
 const commonjs = require('rollup-plugin-commonjs');
 const nodeResolve = require('rollup-plugin-node-resolve');
-const uglify = require('rollup-plugin-uglify');
-const { minify } = require('uglify-es');
+//const uglify = require('rollup-plugin-uglify');
+//const { minify } = require('uglify-es');
 const visualizer = require('rollup-plugin-visualizer');
 const path = require('path');
 const fs = require('fs');
@@ -19,12 +19,6 @@ const build = async function () {
 		'react-jss',
 		'jss-preset-default',
 	];
-	const globals = {
-		'react': 'React',
-		'react-jss': 'ReactJSS',
-		'deepmerge': 'deepmerge',
-		'classnames': 'classNames',
-	};
 
 	const bundle = await rollup.rollup({
 		external,
@@ -50,8 +44,8 @@ const build = async function () {
 					],
 				},
 			}),
-			tsLoader({ tsconfig: path.join(__dirname, '../tsconfig.json') }),
-			uglify({}, minify),
+			tsLoader({ tsconfig: path.join(__dirname, '../tsconfig.json'), verbose: 3 }),
+			//uglify({}, minify),
 			visualizer({ filename: './dist/stats.html' }),
 		],
 	});
@@ -60,7 +54,6 @@ const build = async function () {
 		const outOptions = {
 			name: 'library',
 			sourcemap: true,
-			globals,
 			...options,
 		};
 		const { code, map } = await bundle.generate(outOptions);
@@ -72,11 +65,11 @@ const build = async function () {
 	};
 
 	await generateBundle({
-		file: './dist/lib.js',
-		format: 'umd',
+		file: './dist/entries/lib.js',
+		format: 'cjs',
 	});
 	await generateBundle({
-		file: './dist/lib-es.js',
+		file: './dist/entries/lib-es.js',
 		format: 'es',
 	});
 }

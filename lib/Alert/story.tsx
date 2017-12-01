@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import JSXAddon from 'storybook-addon-jsx';
@@ -32,4 +32,4 @@ setAddon(JSXAddon);
 				Donec vel lectus purus. Integer consequat nunc vitae elementum gravida. Donec cursus nisi a est tincidunt consequat. Phasellus magna mauris, volutpat ut mollis ac, porta et sapien. Integer convallis lobortis lacus eget euismod. Praesent hendrerit ex quis ex bibendum imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pellentesque ante quam, mollis mollis tellus rutrum nec. Suspendisse eleifend turpis odio, nec consectetur massa dictum nec. Sed ornare, urna in lobortis egestas, tortor libero pellentesque justo, quis porttitor orci sem et purus.
 			</Text>
 		</div>
-	))
+	)) */

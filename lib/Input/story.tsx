@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 import withReadme from 'storybook-readme/with-readme';
@@ -32,4 +32,4 @@ setAddon(JSXAddon);
 			type={select('Type', ['text', 'password', 'email', 'tel', 'number'], 'text')}
 			expanded={boolean('Expanded', false)}
 		/>
-	))
+	)) */

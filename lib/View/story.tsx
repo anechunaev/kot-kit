@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import withReadme from 'storybook-readme/with-readme';
 import readme from './readme.md';
@@ -51,4 +51,4 @@ setAddon(JSXAddon);
 
 (storiesOf('Atoms/View', module) as any)
 	.addDecorator(withReadme(readme))
-	.addWithJSX('Default', () => <Story />)
+	.addWithJSX('Default', () => <Story />) */

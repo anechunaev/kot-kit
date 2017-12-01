@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import withReadme from 'storybook-readme/with-readme';
@@ -95,4 +95,4 @@ setAddon(JSXAddon);
 				</Panel>
 			</ViewBox>
 		</ViewBox>
-	))
+	)) */

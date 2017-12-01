@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import withReadme from 'storybook-readme/with-readme';
@@ -28,4 +28,4 @@ setAddon(JSXAddon);
 		>
 			{text('Text', 'Default button')}
 		</Button>
-	))
+	)) */
