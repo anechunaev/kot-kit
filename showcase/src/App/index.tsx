@@ -5,6 +5,7 @@ import {
 	Text,
 	Button,
 	Input,
+	Link,
 	withStyles,
 } from 'kot-kit';
 import { Route } from 'react-router-dom';
@@ -73,25 +74,25 @@ class Layout extends React.Component<any> {
 					<Text header large>Docs</Text>
 					{Docs.map((Doc, index) => (
 							<Text key={index} paragraph>
-								<a href={`/docs/${Doc.key}`}>{Doc.key}</a>
+								<Link href={`/docs/${Doc.key}`}>{Doc.key}</Link>
 							</Text>
 					))}
 					<Text header large>Atoms</Text>
 					{Atoms.map((Atom, index) => (
 						<Text key={index} paragraph>
-							<a href={`/atoms/${Atom.key}`}>{Atom.key}</a>
+							<Link href={`/atoms/${Atom.key}`}>{Atom.key}</Link>
 						</Text>
 					))}
 					<Text header large>Molecules</Text>
 					{Molecules.map((Molecule, index) => (
 						<Text key={index} paragraph>
-							<a href={`/molecules/${Molecule.key}`}>{Molecule.key}</a>
+							<Link href={`/molecules/${Molecule.key}`}>{Molecule.key}</Link>
 						</Text>
 					))}
 					<Text header large>Organisms</Text>
 					{Organisms.map((Organism, index) => (
 						<Text key={index} paragraph>
-							<a href={`/organisms/${Organism.key}`}>{Organism.key}</a>
+							<Link href={`/organisms/${Organism.key}`}>{Organism.key}</Link>
 						</Text>
 					))}
 				</View>

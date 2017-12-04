@@ -6,6 +6,7 @@ export { default as Panel } from '../lib/Panel';
 export { default as Spinner } from '../lib/Spinner';
 export { default as Text } from '../lib/Text';
 export { default as View } from '../lib/View';
+export { default as Link } from '../lib/Link';
 
 export { default as theme } from '../theme';
 export * from '../provider';
