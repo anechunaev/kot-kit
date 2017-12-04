@@ -10,6 +10,7 @@ export default (theme: any) => ({
 	},
 	paragraph: {
 		display: 'block',
+		width: '100%',
 		margin: [10, 0],
 	},
 	extraSmall: {

@@ -11,12 +11,18 @@ export interface IProps {
 
 class View extends React.Component<IProps> {
 	public static defaultProps = {
-		width: 1,
 		elementRef: () => {},
 	};
 
 	public render() {
 		const width = this.props.width || 1;
+		const attributes = {} as any;
+
+		if (typeof this.props.width !== 'undefined') {
+			attributes['style'] = {
+				width: width * 100 + '%'
+			}
+		}
 
 		return (
 			<div
@@ -26,7 +32,7 @@ class View extends React.Component<IProps> {
 					[this.props.className || '']: !!this.props.className,
 				})}
 				ref={this.props.elementRef}
-				style={{width: width * 100 + '%'}}
+				{...attributes}
 			>
 				{this.props.children}
 			</div>

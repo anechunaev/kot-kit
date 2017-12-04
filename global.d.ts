@@ -59,3 +59,9 @@ declare module 'classnames' {
 	const cn: (c: any, c2?: any) => string;
 	export default cn;
 }
+
+// @TODO fix something pls
+// webpack patch
+interface NodeRequire {
+	context?: any;
+}
