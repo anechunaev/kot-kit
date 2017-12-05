@@ -1,4 +1,6 @@
 # Description
+**ToDo:**
+* Переписать интерфейс
 
 # Usage
 	import { Input } from 'kot-kit';

@@ -8,5 +8,7 @@ export { default as Text } from '../lib/Text';
 export { default as View } from '../lib/View';
 export { default as Link } from '../lib/Link';
 
+export { default as withHints } from '../lib/withHints';
+
 export { default as theme } from '../theme';
 export * from '../provider';
