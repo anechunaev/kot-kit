@@ -4,8 +4,8 @@ const tsLoader = require('rollup-plugin-typescript2');
 const commonjs = require('rollup-plugin-commonjs');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const visualizer = require('rollup-plugin-visualizer');
-const uglify = require('rollup-plugin-uglify');
-const { minify } = require('uglify-es');
+/* const uglify = require('rollup-plugin-uglify');
+const { minify } = require('uglify-es'); */
 const path = require('path');
 const fs = require('fs');
 
@@ -45,7 +45,7 @@ export default {
 			},
 		}),
 		tsLoader({ tsconfig: path.join(__dirname, './tsconfig.json') }),
-		uglify({}, minify),
+		//uglify({}, minify),
 		visualizer({ filename: './dist/stats.html' }),
 	],
 	output: [

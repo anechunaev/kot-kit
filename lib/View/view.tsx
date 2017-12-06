@@ -19,7 +19,7 @@ class View extends React.Component<IProps> {
 		const attributes = {} as any;
 
 		if (typeof this.props.width !== 'undefined') {
-			attributes['style'] = {
+			attributes.style = {
 				width: width * 100 + '%'
 			}
 		}

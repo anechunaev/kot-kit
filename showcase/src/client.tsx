@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import App from './App/index';
 import { theme, ThemeProvider } from 'kot-kit';
 
 const Root = (() => {
@@ -17,8 +17,9 @@ const Root = (() => {
 	if (module.hot) {
 		const AppContainer = require('react-hot-loader').AppContainer;
 		//@ts-ignore
-		module.hot.accept('./App', () => {
-			require('./App').default;
+		module.hot.accept('./App/index', () => {
+			// tslint:disable-next-line
+			require('./App/index').default;
 			render();
 		});
 

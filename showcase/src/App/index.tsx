@@ -40,7 +40,7 @@ const requireAll = (context: any, componentsArray: any[]) => {
 		};
 	
 		if (!!name) {
-			data['key'] = name[1];
+			data.key = name[1];
 		}
 	
 		componentsArray.push(data);

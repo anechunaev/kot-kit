@@ -10,8 +10,10 @@ export interface IHintProps {
 }
 
 export interface IInputProps {
-	value?: any;
-	hiddenValue?: any;
+	value?: string;
+	defaultValue?: string;
+	hiddenInputProps?: any;
+	name?: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -26,7 +28,7 @@ class WithHints extends React.Component<IProps, Hint> {
 
 		this.state = {
 			value: props.value,
-			hiddenValue: props.hiddenValue,
+			hiddenValue: (props.hiddenInputProps || {}).value,
 		}
 	}
 
@@ -44,22 +46,27 @@ class WithHints extends React.Component<IProps, Hint> {
 	}
 
 	public componentWillReceiveProps(nextProps: IProps) {
-		if (this.props.value !== nextProps.value || this.props.hiddenValue !== nextProps.hiddenValue) {
+		const getHiddenValue = (props: IProps) => (props.hiddenInputProps || {}).value;
+		if (this.props.value !== nextProps.value || getHiddenValue(this.props) !== getHiddenValue(nextProps)) {
 			this.setState({
 				value: nextProps.value,
-				hiddenValue: nextProps.hiddenValue,
+				hiddenValue: getHiddenValue(nextProps),
 			});
 		}
 	}
 
 	public render() {
-		const { withHintsComponents, withHintsInnerComponent, ...rest } = this.props;
+		const { withHintsComponents, withHintsInnerComponent, hiddenInputProps = {}, ...rest } = this.props;
 		const Component = withHintsInnerComponent;
-		const Hint = withHintsComponents;
+		const HintComponent = withHintsComponents;
+		const hiddenProps = {
+			...hiddenInputProps,
+			value: this.state.hiddenValue,
+		};
 
 		return [
-			<Component key="comp" {...rest} value={this.state.value} hiddenValue={this.state.hiddenValue} onChange={this.onComponentChange} />,
-			<Hint key="hint" onClick={this.onHintClick} />,
+			<Component key="comp" {...rest} value={this.state.value} hiddenInputProps={hiddenProps} onChange={this.onComponentChange} />,
+			<HintComponent key="hint" onClick={this.onHintClick} />,
 		];
 	}
 }

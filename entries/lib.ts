@@ -9,6 +9,7 @@ export { default as View } from '../lib/View';
 export { default as Link } from '../lib/Link';
 
 export { default as withHints } from '../lib/withHints';
+export { default as withHiddenValue } from '../lib/withHiddenValue';
 
 export { default as theme } from '../theme';
 export * from '../provider';

@@ -30,7 +30,7 @@ export function hex(s: string, startWithNumberSign: boolean = true): HEX {
 
 	if (!/(^#?[0-9A-F]{6}$)|(^#?[0-9A-F]{3}$)/i.test(s)) return pad('000000');
 
-	const base = (s.match(/^#?(.*)/) || [,''])[1] || '';
+	const base = (s.match(/^#?(.*)/) || ['', ''])[1] || '';
 
 	if (base.length < 3) {
 		return pad('000000');
