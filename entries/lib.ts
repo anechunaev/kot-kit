@@ -10,6 +10,7 @@ export { default as Link } from '../lib/Link';
 
 export { default as withHints } from '../lib/withHints';
 export { default as withHiddenValue } from '../lib/withHiddenValue';
+export { default as withKeyEventHandler } from '../lib/withKeyEventHandler';
 
 export { default as theme } from '../theme';
 export * from '../provider';
