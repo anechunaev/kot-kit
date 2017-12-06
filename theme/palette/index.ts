@@ -13,7 +13,7 @@ export default {
 	},
 	selectable: {
 		default: {
-			normal: '',
+			normal: '#ffffff',
 			hover: 'linear-gradient(to bottom, #d6f5ff, #a5e1f8)',
 			active: 'linear-gradient(to top, #c6e7f3, #6cb4ce), linear-gradient(#98cbdf, #98cbdf)',
 		},

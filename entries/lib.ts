@@ -7,6 +7,7 @@ export { default as Spinner } from '../lib/Spinner';
 export { default as Text } from '../lib/Text';
 export { default as View } from '../lib/View';
 export { default as Link } from '../lib/Link';
+export { default as Select } from '../lib/Select';
 
 export { default as withHints } from '../lib/withHints';
 export { default as withHiddenValue } from '../lib/withHiddenValue';
