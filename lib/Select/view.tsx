@@ -2,7 +2,7 @@ import * as React from 'react';
 import { default as Text } from '../Text';
 
 export interface IOuterProps {
-	selected: boolean;
+	selected?: boolean;
 	className?: string;
 	onSelect: () => void;
 }
@@ -14,7 +14,7 @@ export interface IInnerProps extends IOuterProps {
 const SelectView: React.SFC<IInnerProps> = ({
 	children,
 	className,
-	selected,
+	selected = false,
 	classes,
 	onSelect = () => {},
 	...rest
