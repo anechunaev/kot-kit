@@ -14,4 +14,7 @@ export default (theme: any) => ({
 	withShadow: {
 		boxShadow: '0 4px 5px 0 rgba(65, 97, 124, 0.1), 0 4px 11px 1px rgba(65, 97, 124, 0.4), 0 0 1px 1px rgba(65, 97, 124, 0.1)',
 	},
+	sizeByContent: {
+		width: 'auto',
+	},
 })

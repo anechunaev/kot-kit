@@ -8,7 +8,10 @@ export { default as Text } from '../lib/Text';
 export { default as View } from '../lib/View';
 export { default as Link } from '../lib/Link';
 export { default as Select } from '../lib/Select';
+export { default as Suggest } from '../lib/Suggest';
+export { default as TrainStationSuggest } from '../lib/TrainStationSuggest';
 
+export { default as withSuggest } from '../lib/withSuggest';
 export { default as withHints } from '../lib/withHints';
 export { default as withHiddenValue } from '../lib/withHiddenValue';
 export { default as withKeyEventHandler } from '../lib/withKeyEventHandler';

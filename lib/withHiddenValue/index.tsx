@@ -13,6 +13,7 @@ export interface IEditableProps {
 	defaultValue?: string;
 	name?: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	placeholder?: string;
 }
 
 export interface IOuterProps extends IEditableProps {

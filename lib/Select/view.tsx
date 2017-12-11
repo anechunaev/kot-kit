@@ -4,7 +4,7 @@ import { default as Text } from '../Text';
 export interface IOuterProps {
 	selected?: boolean;
 	className?: string;
-	onSelect: () => void;
+	onSelect?: () => void;
 }
 
 export interface IInnerProps extends IOuterProps {

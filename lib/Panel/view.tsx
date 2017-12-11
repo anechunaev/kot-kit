@@ -9,6 +9,7 @@ export interface IProps {
 	withPadding?: boolean;
 	withMargin?: boolean;
 	withShadow?: boolean;
+	sizeByContent?: boolean;
 }
 
 class PanelView extends React.Component<IProps> {
@@ -16,7 +17,8 @@ class PanelView extends React.Component<IProps> {
 		withPadding: true,
 		withMargin: true,
 		withShadow: true,
-	}
+		sizeByContent: false,
+	};
 
 	public render() {
 		return (
@@ -26,6 +28,7 @@ class PanelView extends React.Component<IProps> {
 					[this.props.classes.withPadding]: this.props.withPadding,
 					[this.props.classes.withMargin]: this.props.withMargin,
 					[this.props.classes.withShadow]: this.props.withShadow,
+					[this.props.classes.sizeByContent]: this.props.sizeByContent,
 					[this.props.className || '']: !!this.props.className,
 				})}
 			>

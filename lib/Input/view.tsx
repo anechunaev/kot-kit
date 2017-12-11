@@ -8,6 +8,7 @@ export interface IProps {
 	invalid?: boolean;
 	expanded?: boolean;
 	type?: 'text' | 'password' | 'email' | 'tel' | 'number';
+	placeholder?: string;
 	classes: Dictionary<string>,
 }
 
@@ -38,6 +39,14 @@ class InputView extends React.Component<IProps, IState> {
 	}
 
 	public componentWillReceiveProps(newProps: IProps) {
+		if (newProps.value !== this.props.value && this.props.onChange) {
+			this.props.onChange({
+				target: {
+					value: newProps.value
+				}
+			} as React.ChangeEvent<HTMLInputElement>);
+		}
+
 		if (!!newProps.value) {
 			this.setState({
 				value: newProps.value
@@ -46,7 +55,7 @@ class InputView extends React.Component<IProps, IState> {
 	}
 
 	public render() {
-		const { value, onChange, defaultValue, classes, invalid, expanded, type, ...rest } = this.props;
+		const { value, onChange, defaultValue, classes, invalid, expanded, ...rest } = this.props;
 
 		const props = {
 			className: cn({
@@ -54,14 +63,13 @@ class InputView extends React.Component<IProps, IState> {
 				[classes.invalid]: invalid,
 				[classes.expanded]: expanded,
 			}),
-			type,
 			value: this.state.value,
 			onChange: this.onInputChange,
 			...rest
 		};
 
 		return (
-			<input {...props} />
+			<input defaultValue="" {...props} />
 		)
 	}
 }
