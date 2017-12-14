@@ -11,7 +11,8 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "build-dev": "cross-env NODE_ENV=development rollup -c && mv dist/lib.js dist/entries/lib.js && mv dist/lib-es.js dist/entries/lib-es.js",
     "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json",
-    "showcase": "cd showcase && npm start"
+    "showcase": "cd showcase && npm start",
+    "docs": "node_modules/typedoc/bin/typedoc --externalPattern \"**/node_modules/**/*.*\" --exclude \"**/showcase/**/*.*\" --target es6 --theme minimal --ignoreCompilerErrors --excludeExternals --mode modules --includeDeclarations global.d.ts --tsconfig tsconfig.json --out dist/docs lib/"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "rollup-plugin-visualizer": "^0.3.1",
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0",
+    "typedoc": "^0.9.0",
     "typescript": "^2.6.2",
     "uglify-es": "^3.2.0"
   },
