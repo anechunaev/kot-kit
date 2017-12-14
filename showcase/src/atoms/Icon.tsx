@@ -38,14 +38,15 @@ export default () => (
 		</Text>
 
 		<Text header large>Custom icon pack with IconProvider</Text>
+		{console.log(React)}
 		<IconProvider pack="/material-icons.svg">
 			<Text paragraph>
-				<Icon size={32} name="copy" />
-				<Icon size={32} name="paste" />
-				<Icon size={32} name="file" />
-				<Icon size={32} name="folder" />
-				<Icon size={32} name="home" />
-				<Icon size={32} name="stack" />
+				<Icon name="copy" />
+				<Icon name="paste" />
+				<Icon name="file" />
+				<Icon name="folder" />
+				<Icon name="home" />
+				<Icon name="stack" />
 			</Text>
 		</IconProvider>
 	</View>
