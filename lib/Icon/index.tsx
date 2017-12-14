@@ -1,13 +1,7 @@
-import * as React from 'react';
+import View, { IOuterProps } from './view';
+import { withTheme } from 'provider';
 
-export interface IProps {
-	name: string;
-	size?: number;
-	color?: string;
+export interface IProps extends IOuterProps {
 }
 
-export default ({ name, size = 16, color = 'currentColor' }: IProps) => (
-	<svg width={size} height={size}>
-		<use style={{ color }} xlinkHref={`/icons.svg#${name}`} />
-	</svg>
-)
+export default withTheme(View)

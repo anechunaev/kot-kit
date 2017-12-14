@@ -3,6 +3,7 @@ import {
 	Text,
 	View,
 	Icon,
+	IconProvider,
 } from 'kot-kit';
 
 export default () => (
@@ -35,5 +36,17 @@ export default () => (
 			<Icon size={48} name="menu-tours" />
 			<Icon size={56} name="menu-train" />
 		</Text>
+
+		<Text header large>Custom icon pack with IconProvider</Text>
+		<IconProvider pack="/material-icons.svg">
+			<Text paragraph>
+				<Icon size={32} name="copy" />
+				<Icon size={32} name="paste" />
+				<Icon size={32} name="file" />
+				<Icon size={32} name="folder" />
+				<Icon size={32} name="home" />
+				<Icon size={32} name="stack" />
+			</Text>
+		</IconProvider>
 	</View>
 )
