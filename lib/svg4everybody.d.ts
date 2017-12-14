@@ -1,0 +1,1 @@
+export const svg4everybody: (options?: any) => void;

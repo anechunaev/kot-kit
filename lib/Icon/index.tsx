@@ -1,7 +1,7 @@
-import View, { IOuterProps } from './view';
-import { withTheme } from 'provider';
+import View from './view';
+import Model, { IOuterProps as IModelProps } from './model';
 
-export interface IProps extends IOuterProps {
+export interface IProps extends IModelProps {
 }
 
-export default withTheme(View)
+export default Model(View);
