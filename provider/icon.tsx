@@ -14,7 +14,6 @@ const Child = (children: any) => () => children; // React v15 compatibility
 class IconProvider extends React.Component<IInnerProps> {
 	public componentWillReceiveProps(nextProps: IInnerProps) {
 		if (nextProps.pack !== this.props.pack) {
-			console.log(nextProps);
 			// @TODO: добавить асинхронную загрузку пака иконок
 		}
 	}
