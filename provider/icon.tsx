@@ -12,6 +12,12 @@ export interface IInnerProps extends IProps {
 const Child = (children: any) => () => children; // React v15 compatibility
 
 class IconProvider extends React.Component<IInnerProps> {
+	public componentWillReceiveProps(nextProps: IInnerProps) {
+		if (nextProps.pack !== this.props.pack) {
+			// @TODO: добавить асинхронную загрузку пака иконок
+		}
+	}
+
 	public render() {
 		const { theme, pack, children } = this.props;
 		const patchedTheme = deepmerge.all([{}, theme, {

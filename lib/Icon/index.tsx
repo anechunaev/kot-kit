@@ -1,6 +1,7 @@
 import View, { IOuterProps } from './view';
+import { withTheme } from 'provider';
 
 export interface IProps extends IOuterProps {
 }
 
-export default View
+export default withTheme(View)
