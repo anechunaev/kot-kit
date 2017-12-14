@@ -65,3 +65,10 @@ declare module 'classnames' {
 interface NodeRequire {
 	context?: any;
 }
+
+// @TODO @types/react patch
+interface SVGSVGElement {
+	querySelector: (q: string) => any;
+	querySelectorAll: (q: string) => any;
+	parentNode: any;
+}
