@@ -16,6 +16,7 @@ export { default as withSuggest } from '../lib/withSuggest';
 export { default as withHints } from '../lib/withHints';
 export { default as withHiddenValue } from '../lib/withHiddenValue';
 export { default as withKeyEventHandler } from '../lib/withKeyEventHandler';
+export { default as withIcons } from '../lib/withIcons';
 
 export { default as theme } from '../theme';
 export * from '../provider';

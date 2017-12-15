@@ -1,12 +1,27 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { IProps as IBaseProps } from './index';
+import { IWithIcons } from '../withIcons';
 
-export interface IProps extends IBaseProps {
+export interface IOuterProps extends IWithIcons {
+	href?: string;
+	target?: string;
+	onClick?: (e: React.SyntheticEvent<HTMLButtonElement | HTMLAnchorElement>) => any;
+	disabled?: boolean;
+	elementRef?: React.Ref<HTMLButtonElement | HTMLAnchorElement>;
+	tabIndex?: number;
+	expanded?: boolean;
+	active?: boolean;
+	primary?: boolean;
+	toggled?: boolean;
+	alternate?: boolean;
+	className?: string;
+}
+
+export interface IInnerProps extends IOuterProps {
 	classes: Dictionary<string>;
 }
 
-const Container: React.SFC<IBaseProps> = ({ href, target, children, className, onClick, elementRef, disabled, tabIndex }) => !!href ? (
+const Container: React.SFC<IOuterProps> = ({ href, target, children, className, onClick, elementRef, disabled, tabIndex }) => !!href ? (
 	<a
 		href={href}
 		target={target}
@@ -29,7 +44,7 @@ const Container: React.SFC<IBaseProps> = ({ href, target, children, className, o
 	</button>
 );
 
-class ButtonView extends React.PureComponent<IProps> {
+class ButtonView extends React.PureComponent<IInnerProps> {
 	public static defaultProps = {
 		onClick: () => {},
 		elementRef: () => {},
@@ -54,6 +69,8 @@ class ButtonView extends React.PureComponent<IProps> {
 			expanded,
 			toggled,
 			alternate,
+			iconSlotLeft,
+			iconSlotRight,
 		} = this.props;
 
 		return (
@@ -74,7 +91,13 @@ class ButtonView extends React.PureComponent<IProps> {
 				disabled={disabled}
 				tabIndex={tabIndex}
 			>
-				{children}
+				{!!iconSlotLeft && (
+					<div className={classes.slotLeft}>{iconSlotLeft}</div>
+				)}
+				<div className={classes.slotContent}>{children}</div>
+				{!!iconSlotRight && (
+					<div className={classes.slotRight}>{iconSlotRight}</div>
+				)}
 			</Container>
 		);
 	}

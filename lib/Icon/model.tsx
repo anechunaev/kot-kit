@@ -3,6 +3,7 @@ import { IOuterProps as IViewProps } from './view';
 import { svg4everybody } from '../svg4everybody';
 
 export interface IOuterProps extends IViewProps {
+	slot?: 'left' | 'right';
 }
 
 export interface IInnerProps extends IOuterProps {
@@ -10,6 +11,9 @@ export interface IInnerProps extends IOuterProps {
 }
 
 class IconModel extends React.Component<IInnerProps> {
+	public static defaultProps = {
+		slot: 'left',
+	};
 	private svgNode: SVGSVGElement;
 
 	private getSvgNode = (node: SVGSVGElement) => this.svgNode = node;
@@ -20,7 +24,7 @@ class IconModel extends React.Component<IInnerProps> {
 	}
 
 	public render() {
-		const { iconViewInnerComponent, ...rest } = this.props;
+		const { iconViewInnerComponent, slot, ...rest } = this.props;
 		const View = iconViewInnerComponent;
 		return (
 			<View {...rest} elementRef={this.getSvgNode} />

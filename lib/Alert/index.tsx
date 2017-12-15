@@ -1,13 +1,9 @@
 import * as React from 'react';
 import { withStyles, StyleContextProvider } from 'provider';
 import styles from './style';
-import View from './view';
+import View, { IOuterProps as IViewProps } from './view';
 
-export interface IProps {
-	className?: string;
-	withMargin?: boolean;
-	danger?: boolean;
-	title?: string;
+export interface IProps extends IViewProps {
 }
 
 const EnhancedView = withStyles(styles)(View);

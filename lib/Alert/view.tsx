@@ -1,15 +1,20 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { IProps as IBaseProps } from './index';
 
 import Panel from '../Panel';
 import Text from '../Text';
 
-export interface IProps extends IBaseProps {
+export interface IOuterProps {
+	className?: string;	// @TODO move to default component interface
+	withMargin?: boolean;
+	danger?: boolean;
+	title?: string;
+}
+export interface IInnerProps extends IOuterProps {
 	classes: Dictionary<string>;
 }
 
-class PanelView extends React.Component<IProps> {
+class PanelView extends React.Component<IInnerProps> {
 	public static defaultProps = {
 		withMargin: true,
 		danger: false,
