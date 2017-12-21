@@ -6,7 +6,11 @@ import {
 	Text,
 } from 'kot-kit';
 
-const EnhancedInput = withHints(({ onClick }) => (
+type EnhancedProps = {
+	onClick: (options: any) => () => void;
+}
+
+const EnhancedInput = withHints(({ onClick }: EnhancedProps) => (
 	<div style={{ width: '100%' }}>
 		<Text>
 			<Link pseudo onClick={onClick({ value: 'First' })}>First value</Link>,&nbsp;

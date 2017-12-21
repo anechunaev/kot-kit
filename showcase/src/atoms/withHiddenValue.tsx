@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { Input, Text, Link, withHiddenValue, withHints } from 'kot-kit';
 
+type EnhancedProps = {
+	onClick: (options: any) => () => void;
+}
+
 const EnhancedInput = withHiddenValue(Input);
-const EnhancedInputWithHints = withHints(({ onClick }) => (
+const EnhancedInputWithHints = withHints(({ onClick }: EnhancedProps) => (
 	<div style={{ width: '100%' }}>
 		<Text>
 			<Link pseudo onClick={onClick({ value: 'First', hiddenValue: '1' })}>First value</Link>,&nbsp;
