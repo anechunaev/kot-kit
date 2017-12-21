@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production rollup -c",
     "build-dev": "cross-env NODE_ENV=development rollup -c && mv dist/lib.js dist/entries/lib.js && mv dist/lib-es.js dist/entries/lib-es.js",
-    "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json",
+    "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json --exclude \"**/showcase/**/*.*\"",
     "showcase": "cd showcase && npm start",
     "docs": "node_modules/typedoc/bin/typedoc --externalPattern \"**/node_modules/**/*.*\" --exclude \"**/showcase/**/*.*\" --target es6 --theme minimal --ignoreCompilerErrors --excludeExternals --mode modules --includeDeclarations global.d.ts --tsconfig tsconfig.json --out dist/docs lib/"
   },

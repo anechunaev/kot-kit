@@ -14,10 +14,12 @@ export function hashCode(data: string): string {
 export function encodeQueryUrl(query: Dictionary<string>): string {
 	let params = "";
 	for (const key in query) {
-		if (params != "") {
-			params += "&";
+		if (!query.hasOwnProperty(key)) {
+			if (params != "") {
+				params += "&";
+			}
+			params += key + "=" + encodeURIComponent(query[key]);
 		}
-		params += key + "=" + encodeURIComponent(query[key]);
 	}
 
 	return params;

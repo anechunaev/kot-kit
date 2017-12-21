@@ -40,11 +40,12 @@ class InputView extends React.Component<IProps, IState> {
 
 	public componentWillReceiveProps(newProps: IProps) {
 		if (newProps.value !== this.props.value && this.props.onChange) {
-			this.props.onChange({
+			const customEvent = {
 				target: {
 					value: newProps.value
-				}
-			} as React.ChangeEvent<HTMLInputElement>);
+				},
+			};
+			this.props.onChange(customEvent as React.ChangeEvent<HTMLInputElement>);
 		}
 
 		if (!!newProps.value) {

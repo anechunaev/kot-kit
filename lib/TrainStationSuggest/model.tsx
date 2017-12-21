@@ -18,7 +18,7 @@ export interface IInnerProps extends IOuterProps {
 	trainStationSuggestInnerComponent: React.ComponentType<IViewProps>
 }
 export interface IState {
-	items: { id: string | number, value: string }[];
+	items: Array<{ id: string | number, value: string }>;
 }
 
 class TrainStationSuggestModel extends React.Component<IInnerProps, IState> {

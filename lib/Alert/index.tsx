@@ -3,8 +3,7 @@ import { withStyles, StyleContextProvider } from 'provider';
 import styles from './style';
 import View, { IOuterProps as IViewProps } from './view';
 
-export interface IProps extends IViewProps {
-}
+export type IProps = IViewProps;
 
 const EnhancedView = withStyles(styles)(View);
 

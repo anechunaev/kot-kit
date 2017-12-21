@@ -5,8 +5,7 @@ import View, { IOuterProps as IViewProps } from './view';
 
 const EnhancedView = withStyles(styles)(View);
 
-export interface IProps extends IViewProps {
-}
+export type IProps = IViewProps;
 
 const Button: React.SFC<IProps> = (props: IProps) => (
 	<StyleContextProvider light={props.primary}>

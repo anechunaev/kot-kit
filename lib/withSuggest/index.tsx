@@ -3,8 +3,7 @@ import Model, { IOuterProps as IModelProps } from './model';
 import View from './view';
 import { IProps as ISuggestProps } from '../Suggest';
 
-export interface IProps extends IModelProps {
-}
+export type IProps = IModelProps;
 
 const WithSuggest = Model(View);
 

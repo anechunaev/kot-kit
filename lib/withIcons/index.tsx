@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { IProps } from '../Icon';
 
-export type Icon = React.ReactElement<IProps>;
+export type IIcon = React.ReactElement<IProps>;
 export interface IWithIcons {
-	iconSlotLeft?: Icon;
-	iconSlotRight?: Icon;
+	iconSlotLeft?: IIcon;
+	iconSlotRight?: IIcon;
 }
-type Icons = Icon[] | Icon;
+export type IIcons = IIcon[] | IIcon;
 
-const getIconsSlots = (Icons: Icons) => {
-	const slots: Dictionary<Icon> = {};
+const getIconsSlots = (Icons: IIcons) => {
+	const slots: Dictionary<IIcon> = {};
 
 	if (Array.isArray(Icons)) {
 		Icons.map((Icon) => {
@@ -23,7 +23,7 @@ const getIconsSlots = (Icons: Icons) => {
 	return slots;
 }
 
-const getIconSlotName = (Icon: Icon) => {
+const getIconSlotName = (Icon: IIcon) => {
 	if (Icon.props.slot === 'right') {
 		return 'iconSlotRight';
 	}
@@ -31,6 +31,6 @@ const getIconSlotName = (Icon: Icon) => {
 	return 'iconSlotLeft';
 };
 
-export default (Icons: Icons) =>
+export default (Icons: IIcons) =>
 	(Component: React.ComponentType<any>) =>
 	(props: any) => <Component {...getIconsSlots(Icons)} {...props} />

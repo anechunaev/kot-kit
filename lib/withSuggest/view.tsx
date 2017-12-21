@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { IProps as ISuggestProps } from '../Suggest';
 
-export interface IOuterProps {
+// tslint:disable-next-line:no-empty-interface
+export interface IOuterProps { // @TODO правильно описать props
 }
 export interface IInnerProps extends IOuterProps {
 	suggestInnerComponent: React.ComponentType<ISuggestProps>;

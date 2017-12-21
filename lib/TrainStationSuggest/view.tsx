@@ -7,7 +7,7 @@ export interface IOuterProps {
 	length?: number;
 }
 export interface IInnerProps extends IOuterProps {
-	items: { value: string, id: string | number }[];
+	items: Array<{ value: string, id: string | number }>;
 }
 
 class TrainStationSuggestView extends React.PureComponent<IInnerProps> {
