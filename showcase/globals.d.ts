@@ -30,3 +30,7 @@ declare module "kot-kit" {
 interface NodeRequire {
 	context?: any;
 }
+
+type Dictionary<T> = {
+	[index: string]: T;
+}
