@@ -1,12 +1,12 @@
 export default (theme: any) => ({
 	base: {
 		color: theme.context.text.color.normal,
-		font: '400 15px/1.33 sans-serif',
+		font: theme.context.text.font.paragraphMedium,
 	},
 	header: {
 		display: 'block',
 		width: '100%',
-		font: '600 18px/1.22 sans-serif',
+		font: theme.context.text.font.headerMedium,
 	},
 	paragraph: {
 		display: 'block',
@@ -14,31 +14,31 @@ export default (theme: any) => ({
 		margin: [10, 0],
 	},
 	extraSmall: {
-		font: '400 12px/1.42 sans-serif',
+		font: theme.context.text.font.paragraphExtraSmall,
 
 		'&$header': {
-			font: '600 15px/1.2 sans-serif',
+			font: theme.context.text.font.headerExtraSmall,
 		},
 	},
 	small: {
-		font: '400 13px/1.38 sans-serif',
+		font: theme.context.text.font.paragraphSmall,
 		
 		'&$header': {
-			font: '600 15px/1.2 sans-serif',
+			font: theme.context.text.font.headerSmall,
 		},
 	},
 	large: {
-		font: '400 18px/1.22 sans-serif',
+		font: theme.context.text.font.paragraphLarge,
 		
 		'&$header': {
-			font: '600 20px/1.2 sans-serif',
+			font: theme.context.text.font.headerLarge,
 		},
 	},
 	extraLarge: {
-		font: '400 20px/1.2 sans-serif',
+		font: theme.context.text.font.paragraphExtraLarge,
 		
 		'&$header': {
-			font: '600 24px/1.13 sans-serif',
+			font: theme.context.text.font.headerExtraLarge,
 		},
 	},
 })

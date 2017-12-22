@@ -6,6 +6,8 @@ const linkMixin = (color: string) => ({
 	border: 0,
 	borderBottom: ['1px', 'solid', fade(color, 0.4)],
 	cursor: 'pointer',
+	position: 'relative',
+	margin: ({ iconSlotLeft, iconSlotRight }: any) => `0 ${iconSlotRight ? '16px' : 0} 0 ${iconSlotLeft ? '16px' : 0}`,
 
 	'&:hover': {
 		color: '#cc2529',
@@ -25,5 +27,15 @@ export default () => ({
 	},
 	light: {
 		...linkMixin('#FFF'),
+	},
+	slotLeft: {
+		position: 'absolute',
+		left: -16,
+		top: 0,
+	},
+	slotRight: {
+		position: 'absolute',
+		right: -16,
+		top: 0,
 	},
 })
