@@ -3,10 +3,11 @@ import {
 	View,
 	Panel,
 	Text,
-	Button,
+	//Button,
 	Input,
 	Link,
 	withStyles,
+	StyleContextProvider,
 } from 'kot-kit';
 import { Route } from 'react-router-dom';
 
@@ -64,38 +65,40 @@ class Layout extends React.Component<any> {
 						<Text header extraLarge>UI kit showcase</Text>
 					</View>
 					<View className={classes.toggle}>
-						<Text>
+						{/* <Text>
 							<Button>Dark theme</Button>
-						</Text>
+						</Text> */}
 					</View>
 				</View>
-				<View width={1 / 4}>
-					<Input placeholder="Search..." />
-					<Text header large>Docs</Text>
-					{Docs.map((Doc, index) => (
+				<StyleContextProvider secondary>
+					<View width={1 / 4}>
+						<Input placeholder="Search..." />
+						<Text header large>Docs</Text>
+						{Docs.map((Doc, index) => (
+								<Text key={index} paragraph>
+									<Link href={`/docs/${Doc.key}`}>{Doc.key}</Link>
+								</Text>
+						))}
+						<Text header large>Atoms</Text>
+						{Atoms.map((Atom, index) => (
 							<Text key={index} paragraph>
-								<Link href={`/docs/${Doc.key}`}>{Doc.key}</Link>
+								<Link href={`/atoms/${Atom.key}`}>{Atom.key}</Link>
 							</Text>
-					))}
-					<Text header large>Atoms</Text>
-					{Atoms.map((Atom, index) => (
-						<Text key={index} paragraph>
-							<Link href={`/atoms/${Atom.key}`}>{Atom.key}</Link>
-						</Text>
-					))}
-					<Text header large>Molecules</Text>
-					{Molecules.map((Molecule, index) => (
-						<Text key={index} paragraph>
-							<Link href={`/molecules/${Molecule.key}`}>{Molecule.key}</Link>
-						</Text>
-					))}
-					<Text header large>Organisms</Text>
-					{Organisms.map((Organism, index) => (
-						<Text key={index} paragraph>
-							<Link href={`/organisms/${Organism.key}`}>{Organism.key}</Link>
-						</Text>
-					))}
-				</View>
+						))}
+						<Text header large>Molecules</Text>
+						{Molecules.map((Molecule, index) => (
+							<Text key={index} paragraph>
+								<Link href={`/molecules/${Molecule.key}`}>{Molecule.key}</Link>
+							</Text>
+						))}
+						<Text header large>Organisms</Text>
+						{Organisms.map((Organism, index) => (
+							<Text key={index} paragraph>
+								<Link href={`/organisms/${Organism.key}`}>{Organism.key}</Link>
+							</Text>
+						))}
+					</View>
+				</StyleContextProvider>
 				<View width={3 / 4}>
 					<Route exact path={`/`} component={WelcomeArticle} />
 					{Docs.map((Doc, index) => <Route key={index} exact path={`/docs/${Doc.key}`} component={Doc.Component.default} />)}

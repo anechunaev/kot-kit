@@ -1,12 +1,12 @@
 export default (theme: any) => ({
 	base: {
 		color: theme.context.text.color.normal,
-		font: theme.context.text.font.paragraphMedium,
+		font: theme.context.text.font.style.paragraphMedium,
 	},
 	header: {
 		display: 'block',
 		width: '100%',
-		font: theme.context.text.font.headerMedium,
+		font: theme.context.text.font.style.headerMedium,
 	},
 	paragraph: {
 		display: 'block',
@@ -14,31 +14,31 @@ export default (theme: any) => ({
 		margin: [10, 0],
 	},
 	extraSmall: {
-		font: theme.context.text.font.paragraphExtraSmall,
+		font: theme.context.text.font.style.paragraphExtraSmall,
 
 		'&$header': {
-			font: theme.context.text.font.headerExtraSmall,
+			font: theme.context.text.font.style.headerExtraSmall,
 		},
 	},
 	small: {
-		font: theme.context.text.font.paragraphSmall,
+		font: theme.context.text.font.style.paragraphSmall,
 		
 		'&$header': {
-			font: theme.context.text.font.headerSmall,
+			font: theme.context.text.font.style.headerSmall,
 		},
 	},
 	large: {
-		font: theme.context.text.font.paragraphLarge,
+		font: theme.context.text.font.style.paragraphLarge,
 		
 		'&$header': {
-			font: theme.context.text.font.headerLarge,
+			font: theme.context.text.font.style.headerLarge,
 		},
 	},
 	extraLarge: {
-		font: theme.context.text.font.paragraphExtraLarge,
+		font: theme.context.text.font.style.paragraphExtraLarge,
 		
 		'&$header': {
-			font: theme.context.text.font.headerExtraLarge,
+			font: theme.context.text.font.style.headerExtraLarge,
 		},
 	},
 })
