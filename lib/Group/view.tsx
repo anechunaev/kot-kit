@@ -16,22 +16,32 @@ class GroupView extends React.Component<IProps> {
 		const groupTheme = deepmerge(this.props.theme, {
 			mixins: {
 				groupItem: (): any => ({
-					...this.props.theme.mixins.groupItem(this.props.theme),
-					borderRadius: 0,
+					display: 'block',
+					height: '100%',
 				})
 			},
 		});
+
+		const lastIndex = React.Children.count(this.props.children) - 1;
 
 		return (
 			<ThemeProvider theme={groupTheme}>
 				<ViewBox
 					nowrap
 					className={cn({
-						[this.props.classes.group]: true,
 						[this.props.classes.vertical]: this.props.vertical,
 					})}
 				>
-					{this.props.children}
+					{React.Children.map(
+						this.props.children,
+						(child, index) => React.cloneElement(child as React.ReactElement<any>, {
+							key: index,
+							className: cn({
+								[this.props.classes.groupItemFirst]: index === 0,
+								[this.props.classes.groupItemLast]: index === lastIndex,
+							}),
+						})
+					)}
 				</ViewBox>
 			</ThemeProvider>
 		);

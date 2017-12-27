@@ -1,7 +1,8 @@
 import * as React from 'react';
 import cn from 'classnames';
+import { IWithIcons } from '../withIcons';
 
-export interface IProps {
+export interface IOuterProps extends IWithIcons {
 	value?: string;
 	defaultValue?: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -9,7 +10,13 @@ export interface IProps {
 	expanded?: boolean;
 	type?: 'text' | 'password' | 'email' | 'tel' | 'number';
 	placeholder?: string;
+	className?: string; // @TODO в базовый интерфейс
+}
+
+export interface IInnerProps extends IOuterProps {
 	classes: Dictionary<string>,
+	theme?: any, // @TODO разобраться, откуда появилась
+	children?: React.ReactNode | React.ReactNode[]; // @TODO React d.ts patch
 }
 
 export interface IState {
@@ -17,17 +24,17 @@ export interface IState {
 }
 
 
-class InputView extends React.Component<IProps, IState> {
+class InputView extends React.Component<IInnerProps, IState> {
 	public static defaultProps = {
 		type: "text",
 	}
 
-	constructor(props: IProps) {
+	constructor(props: IInnerProps) {
 		super(props);
 
 		this.state = {
 			value: props.value || props.defaultValue || ''
-		}
+		};
 	}
 	
 	private onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +45,7 @@ class InputView extends React.Component<IProps, IState> {
 		});
 	}
 
-	public componentWillReceiveProps(newProps: IProps) {
+	public componentWillReceiveProps(newProps: IInnerProps) {
 		if (newProps.value !== this.props.value && this.props.onChange) {
 			const customEvent = {
 				target: {
@@ -56,21 +63,43 @@ class InputView extends React.Component<IProps, IState> {
 	}
 
 	public render() {
-		const { value, onChange, defaultValue, classes, invalid, expanded, ...rest } = this.props;
+		const {
+			iconSlotLeft,
+			iconSlotRight,
+			value,
+			onChange,
+			defaultValue,
+			classes,
+			invalid,
+			expanded,
+			theme,
+			className,
+			...rest
+		} = this.props;
 
-		const props = {
+		const inputProps = {
 			className: cn({
 				[classes.input]: true,
 				[classes.invalid]: invalid,
 				[classes.expanded]: expanded,
-			}),
+			}, className),
 			value: this.state.value,
 			onChange: this.onInputChange,
 			...rest
 		};
 
 		return (
-			<input defaultValue="" {...props} />
+			<div
+				className={classes.wrapper}
+			>
+				{!!iconSlotLeft && (
+					<div className={classes.slotLeft}>{iconSlotLeft}</div>
+				)}
+				<input {...inputProps} />
+				{!!iconSlotRight && (
+					<div className={classes.slotRight}>{iconSlotRight}</div>
+				)}
+			</div>
 		)
 	}
 }

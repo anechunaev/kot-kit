@@ -71,6 +71,7 @@ class ButtonView extends React.PureComponent<IInnerProps> {
 			alternate,
 			iconSlotLeft,
 			iconSlotRight,
+			className,
 		} = this.props;
 
 		return (
@@ -83,7 +84,7 @@ class ButtonView extends React.PureComponent<IInnerProps> {
 					[classes.expanded]: expanded,
 					[classes.toggled]: toggled,
 					[classes.alternate]: alternate,
-				})}
+				}, className)}
 				onClick={!disabled ? onClick : () => {}}
 				href={href}
 				target={target}
