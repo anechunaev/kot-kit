@@ -1,6 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { IWithIcons } from '../withIcons';
+import InputMask from '../../external/react-input-mask';
 
 export interface IOuterProps extends IWithIcons {
 	value?: string;
@@ -11,6 +12,10 @@ export interface IOuterProps extends IWithIcons {
 	type?: 'text' | 'password' | 'email' | 'tel' | 'number';
 	placeholder?: string;
 	className?: string; // @TODO в базовый интерфейс
+	mask?: string; // @TODO readme (react-input-mask)
+	maskChar?: string; // @TODO readme (react-input-mask)
+	alwaysShowMask?: boolean; // @TODO readme (react-input-mask)
+	formatChars?: any; // @TODO readme (react-input-mask)
 }
 
 export interface IInnerProps extends IOuterProps {
@@ -74,6 +79,8 @@ class InputView extends React.Component<IInnerProps, IState> {
 			expanded,
 			theme,
 			className,
+			mask = '',
+			maskChar = '_',
 			...rest
 		} = this.props;
 
@@ -95,7 +102,7 @@ class InputView extends React.Component<IInnerProps, IState> {
 				{!!iconSlotLeft && (
 					<div className={classes.slotLeft}>{iconSlotLeft}</div>
 				)}
-				<input {...inputProps} />
+				<InputMask {...inputProps} mask={mask} maskChar={maskChar} />
 				{!!iconSlotRight && (
 					<div className={classes.slotRight}>{iconSlotRight}</div>
 				)}

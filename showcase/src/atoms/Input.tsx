@@ -1,13 +1,19 @@
 import * as React from 'react';
 import {
-	View as ViewBox,
+	View,
 	Input,
 } from 'kot-kit';
 
 export default () => (
-	<ViewBox>
-		<Input defaultValue="Default" />
-		<br />
-		<Input invalid defaultValue="Invalid state" />
-	</ViewBox>
+	<View>
+		<View>
+			<Input defaultValue="Default" />
+		</View>
+		<View>
+			<Input invalid defaultValue="Invalid state" />
+		</View>
+		<View>
+			<Input mask="+7 (999) 999-9999" maskChar="_" />
+		</View>
+	</View>
 );
