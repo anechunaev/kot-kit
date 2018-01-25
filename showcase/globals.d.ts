@@ -23,6 +23,7 @@ declare module "kot-kit" {
 	export const withStyles: any;
 	export const StyleContextProvider: any;
 	export const IconProvider: any;
+	export const Modal: any;
 }
 
 // @TODO fix something pls

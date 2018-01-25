@@ -11,6 +11,7 @@ export { default as Select } from '../lib/Select';
 export { default as Suggest } from '../lib/Suggest';
 export { default as TrainStationSuggest } from '../lib/TrainStationSuggest';
 export { default as Icon } from '../lib/Icon';
+export { default as Modal } from '../lib/Modal';
 
 export { default as withSuggest } from '../lib/withSuggest';
 export { default as withHints } from '../lib/withHints';

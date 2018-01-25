@@ -30,6 +30,8 @@
     "@types/lodash-es": "^4.17.0",
     "@types/node": "^8.0.53",
     "@types/react": "^16.0.25",
+    "@types/react-input-mask": "^0.7.7",
+    "@types/react-modal": "^3.1.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
@@ -44,7 +46,9 @@
     "jss-preset-default": "^4.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-input-mask": "^1.1.2",
     "react-jss": "^8.1.0",
+    "react-modal": "^3.1.11",
     "rollup": "^0.52.0",
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-resolve": "^3.0.0",
@@ -68,6 +72,8 @@
     "jss-preset-default": ">=4",
     "react": ">=16",
     "react-dom": ">=16",
-    "react-jss": ">=8"
+    "react-input-mask": ">=1",
+    "react-jss": ">=8",
+    "react-modal": ">=3"
   }
 }

@@ -18,6 +18,8 @@ const external = [
 	'jss',
 	'react-jss',
 	'jss-preset-default',
+	'react-modal',
+	'react-input-mask',
 ];
 
 export default {
@@ -30,6 +32,7 @@ export default {
 			customResolveOptions: {
 				moduleDirectory: 'node_modules',
 			},
+			modulesOnly: true,
 		}),
 		commonjs({
 			include: 'node_modules/**',

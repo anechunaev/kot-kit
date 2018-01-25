@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { IWithIcons } from '../withIcons';
-import InputMask from '../../external/react-input-mask';
+import InputMask from 'react-input-mask';
 
 export interface IOuterProps extends IWithIcons {
 	value?: string;
