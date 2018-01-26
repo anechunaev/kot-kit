@@ -1,6 +1,6 @@
 import { fade } from '../styleHelpers';
 
-const linkMixin = (color: string) => ({
+const linkMixin = (color: string, hoverColor: string) => ({
 	color,
 	textDecoration: 'none',
 	border: 0,
@@ -10,23 +10,23 @@ const linkMixin = (color: string) => ({
 	margin: ({ iconSlotLeft, iconSlotRight }: any) => `0 ${iconSlotRight ? '1em' : 0} 0 ${iconSlotLeft ? '1em' : 0}`,
 
 	'&:hover': {
-		color: '#cc2529',
-		borderColor: fade('#cc2529', 0.4).toString(),
+		color: hoverColor,
+		borderColor: fade(hoverColor, 0.4).toString(),
 	},
 })
 
-export default () => ({
+export default (theme: any) => ({
 	base: {
-		...linkMixin('#369'),
+		...linkMixin(theme.palette.link.default.normal, theme.palette.link.default.hover),
 	},
 	pseudo: {
 		borderStyle: 'dashed',
 	},
 	dark: {
-		...linkMixin('#000'),
+		...linkMixin(theme.palette.link.dark.normal, theme.palette.link.dark.hover),
 	},
 	light: {
-		...linkMixin('#FFF'),
+		...linkMixin(theme.palette.link.light.normal, theme.palette.link.light.hover),
 	},
 	slotLeft: {
 		position: 'absolute',

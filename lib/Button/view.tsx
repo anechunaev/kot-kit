@@ -13,7 +13,6 @@ export interface IOuterProps extends IWithIcons {
 	active?: boolean;
 	primary?: boolean;
 	toggled?: boolean;
-	alternate?: boolean;
 	className?: string;
 }
 
@@ -68,7 +67,6 @@ class ButtonView extends React.PureComponent<IInnerProps> {
 			tabIndex,
 			expanded,
 			toggled,
-			alternate,
 			iconSlotLeft,
 			iconSlotRight,
 			className,
@@ -83,7 +81,6 @@ class ButtonView extends React.PureComponent<IInnerProps> {
 					[classes.primary]: primary,
 					[classes.expanded]: expanded,
 					[classes.toggled]: toggled,
-					[classes.alternate]: alternate,
 				}, className)}
 				onClick={!disabled ? onClick : () => {}}
 				href={href}

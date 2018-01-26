@@ -8,7 +8,7 @@ import context from './context';
 export default {
 	mixins,
 	fonts,
-	palette,
+	palette: palette(colors),
 	colors,
 	variables,
 	context,

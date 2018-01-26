@@ -104,14 +104,6 @@ export default (theme: any) => ({
 			backgroundImage: 'linear-gradient(to top, #c6e7f3, #6cb4ce)',
 		},
 	},
-	alternate: {
-		'&$toggled': {
-			backgroundImage: 'linear-gradient(to top, #fed0e4, #da77a1)',
-			'&:hover': {
-				backgroundImage: 'linear-gradient(to top, #fed0e4, #da77a1)',
-			},
-		},
-	},
 	slotContent: {
 		alignSelf: 'center',
 		padding: [7, 10],
