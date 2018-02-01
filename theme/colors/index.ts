@@ -22,7 +22,7 @@ export default {
 		grey: 'linear-gradient(to bottom, #faf9f7, #f0eeea 50%, #e5e4df 50%, #dedcd4)',
 		greyLight: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), #eae8df), linear-gradient(to bottom, #fefefd, #f0eeea 50%, #e5e4df 50%, #dedcd4)',
 		greyReversed: 'linear-gradient(to top, #eeeee7 2%, #c3c1b4 100%)',
-		greyReversedAlternative: 'linear-gradient(to top, #bfbfb8, #76766c)',
+		greyReversedAlternative: 'linear-gradient(to top, rgba(191, 191, 184, 0.15), rgba(118, 118, 108, 0.15))',
 		cyan: 'linear-gradient(to bottom, #d6f5ff, #a5e1f8)',
 		cyanReversed: 'linear-gradient(to top, #c6e7f3, #6cb4ce)',
 		yellow: 'linear-gradient(to bottom, #ffe780, #ffda69)',
@@ -35,7 +35,7 @@ export default {
 		white: 'rgba(255, 255, 255, 0.5)',
 		blue: '#1c5990',
 		blueAlternative: 'rgba(0, 46, 88, 0.33)',
-		cyan: '#0091e1',
+		blueLight: '#0091e1',
 		yellow: '#ffcd00',
 	},
 	border: {

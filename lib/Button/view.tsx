@@ -10,7 +10,6 @@ export interface IOuterProps extends IWithIcons {
 	elementRef?: React.Ref<HTMLButtonElement | HTMLAnchorElement>;
 	tabIndex?: number;
 	expanded?: boolean;
-	active?: boolean;
 	primary?: boolean;
 	toggled?: boolean;
 	className?: string;
@@ -55,7 +54,6 @@ class ButtonView extends React.PureComponent<IInnerProps> {
 
 	public render() {
 		const {
-			active,
 			children,
 			classes,
 			disabled,
@@ -77,7 +75,6 @@ class ButtonView extends React.PureComponent<IInnerProps> {
 				className={cn({
 					[classes.wrapper]: true,
 					[classes.disabled]: disabled,
-					[classes.active]: active,
 					[classes.primary]: primary,
 					[classes.expanded]: expanded,
 					[classes.toggled]: toggled,

@@ -1,9 +1,8 @@
 export default (theme: any) => ({
 	alert: {
-		background: theme.palette.passive.warning,
+		...theme.mixins.passive.warning(theme),
 	},
 	danger: {
-		background: theme.palette.passive.danger,
-		color: theme.context.text.color.normal,
+		...theme.mixins.passive.danger(theme),
 	}
 })

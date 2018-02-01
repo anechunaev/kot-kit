@@ -23,6 +23,7 @@ export default (colors: any) => ({
 			normal: colors.base.white,
 			focus: colors.base.white,
 			invalid: colors.base.yellowLight,
+			disabled: colors.gradient.greyReversedAlternative,
 		}
 	},
 	passive: {
