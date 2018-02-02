@@ -4,6 +4,7 @@ export default {
 		background: theme.palette.clickable.primary.normal,
 		cursor: 'pointer',
 		boxShadow: `0 1px 0 0 ${theme.colors.shadow.white}`,
+		border: 0,
 
 		'&:hover': {
 			background: theme.palette.clickable.primary.hover,
@@ -11,14 +12,16 @@ export default {
 
 		'&:active': {
 			background: theme.palette.clickable.primary.active,
-			boxShadow: `0 1px 0 0 ${theme.colors.shadow.white}, 0 1px 3px 0 ${theme.colors.shadow.blue}`,
+			boxShadow: `0 1px 0 0 ${theme.colors.shadow.white}, inset 0 1px 3px 0 ${theme.colors.shadow.blue}`,
 		},
 	}),
 	default: (theme: any) => ({
 		color: theme.context.text.color.normal,
 		background: theme.palette.clickable.default.normal,
 		cursor: 'pointer',
-		border: `1px solid ${theme.colors.border.grey}`,
+		boxSizing: 'border-box',
+		boxShadow: `inset 0 0 0 1px ${theme.colors.border.grey}`,
+		border: 0,
 
 		'&:hover': {
 			background: theme.palette.clickable.default.hover,
@@ -26,13 +29,11 @@ export default {
 
 		'&:active': {
 			background: theme.palette.clickable.default.active,
-			border: 0,
 			boxShadow: `0 1px 0 0 ${theme.colors.shadow.white}`,
 		},
 	}),
 	toggled: (theme: any) => ({
 		background: theme.palette.selectable.default.active,
-		border: 0,
 		boxShadow: `inset 0 1px 3px 0 ${theme.colors.shadow.blueAlternative}`,
 	}),
 }

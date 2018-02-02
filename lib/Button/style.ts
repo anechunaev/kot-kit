@@ -6,16 +6,16 @@ export default (theme: any) => ({
 		textShadow: '0 1px 0 rgba(255, 255, 255, 0.6)',
 		display: 'flex',
 		position: 'relative',
-		padding: [0, 6],
-		boxSizing: 'border-box',
 	},
 	disabled: {
 		opacity: 0.5,
 		cursor: 'default',
 		backgroundImage: theme.palette.clickable.default.normal,
+		boxShadow: 'inherit',
 
 		'&:hover, &:active': {
 			backgroundImage: theme.palette.clickable.default.normal,
+			boxShadow: 'inherit',
 		},
 	},
 	primary: {
@@ -24,8 +24,11 @@ export default (theme: any) => ({
 
 		'&$disabled': {
 			backgroundImage: theme.palette.clickable.primary.normal,
+			boxShadow: 'inherit',
+			cursor: 'default',
 			'&:hover, &:active': {
 				backgroundImage: theme.palette.clickable.primary.normal,
+				boxShadow: 'inherit',
 			},
 		},
 	},

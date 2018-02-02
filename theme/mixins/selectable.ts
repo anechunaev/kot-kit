@@ -1,13 +1,20 @@
-export default (theme: any) => ({
-	color: theme.context.text.color.normal,
-	background: theme.palette.selectable.default.normal,
-	cursor: 'pointer',
+export default {
+	default: (theme: any) => ({
+		color: theme.context.text.color.normal,
+		background: theme.palette.selectable.default.normal,
+		cursor: 'pointer',
+		boxSizing: 'border-box',
 
-	'&:hover': {
+		'&:hover': {
+			color: theme.context.text.color.normal,
+			background: theme.palette.selectable.default.hover,
+		},
+
+		'&:active': {
+			background: theme.palette.selectable.default.active,
+		},
+	}),
+	selected: (theme: any) => ({
 		background: theme.palette.selectable.default.hover,
-	},
-
-	'&:active': {
-		background: theme.palette.selectable.default.active,
-	},
-})
+	}),
+}

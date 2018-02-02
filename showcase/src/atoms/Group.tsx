@@ -43,7 +43,7 @@ export default () => (
 			<Panel withShadow={false} withMargin={false}>
 				<Group>
 					<Button>–</Button>
-					<Input expanded value="1" readOnly />
+					<Input expanded disabled value="1" readOnly />
 					<Button>+</Button>
 				</Group>
 			</Panel>

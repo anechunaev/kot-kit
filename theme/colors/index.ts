@@ -39,6 +39,6 @@ export default {
 		yellow: '#ffcd00',
 	},
 	border: {
-		grey: 'rgba(151, 151, 151, 0.6)',
+		grey: '#d5d5d5',
 	},
 }
