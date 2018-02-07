@@ -27,6 +27,13 @@ export default {
 		cyanReversed: 'linear-gradient(to top, #c6e7f3, #6cb4ce)',
 		yellow: 'linear-gradient(to bottom, #ffe780, #ffda69)',
 		red: 'linear-gradient(to bottom, #ff6669, #e53e41)',
+
+		avia: 'linear-gradient(to bottom, #c9e4f4, #b3d0e2 52%, #97bbd0)',
+		train: 'linear-gradient(to bottom, #cff1ce, #b4e4d6 54%, #95d5df)',
+		bus: 'linear-gradient(to bottom, #ff905d, #ffbb6e)',
+		tours: 'linear-gradient(to bottom, #ffeea5, #edc560)',
+		etrain: 'linear-gradient(to bottom, #e6ebb9, #8dc374 52%, #84b76c)',
+		hotel: 'linear-gradient(to bottom, #faf0ad, #f4cc8e)',
 	},
 	shadow: {
 		black: 'rgba(0, 0, 0, 0.25)',
