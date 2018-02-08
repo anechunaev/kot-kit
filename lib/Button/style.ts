@@ -3,9 +3,11 @@ export default (theme: any) => ({
 		...theme.mixins.groupItem(theme),
 		...theme.mixins.clickable.default(theme),
 		font: theme.fonts.default,
-		textShadow: '0 1px 0 rgba(255, 255, 255, 0.6)',
+		textShadow: `0 1px 0 ${theme.colors.shadow.white}`,
 		display: 'flex',
 		position: 'relative',
+		padding: 0,
+		margin: theme.mixins.metrics.box(theme).wrapper,
 	},
 	disabled: {
 		opacity: 0.5,
@@ -20,7 +22,7 @@ export default (theme: any) => ({
 	},
 	primary: {
 		...theme.mixins.clickable.primary(theme),
-		textShadow: '0 -1px 0 rgba(0, 0, 0, 0.15)',
+		textShadow: `0 -1px 0 ${theme.colors.shadow.black}`,
 
 		'&$disabled': {
 			backgroundImage: theme.palette.clickable.primary.normal,
@@ -43,15 +45,17 @@ export default (theme: any) => ({
 		},
 	},
 	slotContent: {
+		padding: theme.mixins.metrics.box(theme).content,
 		alignSelf: 'center',
-		padding: [7, 10],
 	},
 	slotLeft: {
+		padding: theme.mixins.metrics.box(theme).content,
+		paddingRight: 0,
 		alignSelf: 'center',
-		padding: [7, 0, 7, 10],
 	},
 	slotRight: {
+		padding: theme.mixins.metrics.box(theme).content,
+		paddingLeft: 0,
 		alignSelf: 'center',
-		padding: [7, 10, 7, 0],
 	},
 });

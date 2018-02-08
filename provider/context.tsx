@@ -17,8 +17,12 @@ class ContextProvider extends React.Component<IProps> {
 
 		if (secondary && !primary) {
 			patchedTheme.context.text.font = theme.fonts.secondary;
+			patchedTheme.context.metrics.box = theme.metrics.box.secondary;
+			patchedTheme.context.metrics.text = theme.metrics.text.secondary;
 		} else {
 			patchedTheme.context.text.font = theme.fonts.primary;
+			patchedTheme.context.metrics.box = theme.metrics.box.primary;
+			patchedTheme.context.metrics.text = theme.metrics.text.primary;
 		}
 
 		if (light && !dark) {

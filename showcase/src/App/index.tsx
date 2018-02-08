@@ -99,13 +99,15 @@ class Layout extends React.Component<any> {
 						))}
 					</View>
 				</StyleContextProvider>
-				<View width={3 / 4}>
-					<Route exact path={`/`} component={WelcomeArticle} />
-					{Docs.map((Doc, index) => <Route key={index} exact path={`/docs/${Doc.key}`} component={Doc.Component.default} />)}
-					{Atoms.map((Atom, index) => <Route key={index} exact path={`/atoms/${Atom.key}`} component={Atom.Component.default} />)}
-					{Molecules.map((Molecule, index) => <Route key={index} exact path={`/molecules/${Molecule.key}`} component={Molecule.Component.default} />)}
-					{Organisms.map((Organism, index) => <Route key={index} exact path={`/organisms/${Organism.key}`} component={Organism.Component.default} />)}
-				</View>
+				<StyleContextProvider primary>
+					<View width={3 / 4}>
+						<Route exact path={`/`} component={WelcomeArticle} />
+						{Docs.map((Doc, index) => <Route key={index} exact path={`/docs/${Doc.key}`} component={Doc.Component.default} />)}
+						{Atoms.map((Atom, index) => <Route key={index} exact path={`/atoms/${Atom.key}`} component={Atom.Component.default} />)}
+						{Molecules.map((Molecule, index) => <Route key={index} exact path={`/molecules/${Molecule.key}`} component={Molecule.Component.default} />)}
+						{Organisms.map((Organism, index) => <Route key={index} exact path={`/organisms/${Organism.key}`} component={Organism.Component.default} />)}
+					</View>
+				</StyleContextProvider>
 			</Panel>
 		)
 	}

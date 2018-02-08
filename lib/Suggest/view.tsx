@@ -14,7 +14,7 @@ class SuggestView extends React.Component<IInnerProps> {
 		const { children, visible = false, classes } = this.props;
 		return visible ? (
 			<Panel className={classes.wrapper} withPadding={false} withMargin={false} sizeByContent>
-				<Group vertical>
+				<Group vertical withMargin={false}>
 					{children}
 				</Group>
 			</Panel>

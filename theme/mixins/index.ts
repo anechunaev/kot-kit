@@ -3,6 +3,7 @@ import clickable from './clickable';
 import editable from './editable';
 import passive from './passive';
 import selectable from './selectable';
+import metrics from './metrics';
 
 export default {
 	groupItem,
@@ -10,4 +11,5 @@ export default {
 	editable,
 	passive,
 	selectable,
+	metrics,
 };

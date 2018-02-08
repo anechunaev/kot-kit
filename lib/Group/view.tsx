@@ -9,16 +9,27 @@ export interface IProps {
 	theme: any; // @TODO patch decorator provider/withTheme
 	classes: Dictionary<string>;
 	vertical?: boolean;
+	withMargin?: boolean;
 }
 
 class GroupView extends React.Component<IProps> {
+	public static defaultProps = {
+		withMargin: true,
+	};
+
 	public render() {
 		const groupTheme = deepmerge(this.props.theme, {
 			mixins: {
 				groupItem: (): any => ({
 					display: 'block',
 					height: '100%',
-				})
+				}),
+				metrics: {
+					box: () => ({
+						wrapper: [0, 0, 0, 0],
+						content: this.props.theme.mixins.metrics.box(this.props.theme).content,
+					}),
+				},
 			},
 		});
 
@@ -30,6 +41,7 @@ class GroupView extends React.Component<IProps> {
 					nowrap
 					className={cn({
 						[this.props.classes.vertical]: this.props.vertical,
+						[this.props.classes.wrapper]: this.props.withMargin,
 					})}
 				>
 					{React.Children.map(

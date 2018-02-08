@@ -9,9 +9,9 @@ export default (theme: any) => ({
 		font: theme.context.text.font.style.headerMedium,
 	},
 	paragraph: {
+		margin: theme.mixins.metrics.text(theme).wrapper,
 		display: 'block',
 		width: '100%',
-		margin: [10, 0],
 	},
 	extraSmall: {
 		font: theme.context.text.font.style.paragraphExtraSmall,

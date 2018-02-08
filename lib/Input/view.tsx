@@ -16,6 +16,7 @@ export interface IOuterProps extends IWithIcons {
 	maskChar?: string; // @TODO readme (react-input-mask)
 	alwaysShowMask?: boolean; // @TODO readme (react-input-mask)
 	formatChars?: any; // @TODO readme (react-input-mask)
+	wrapperClassName?: string;
 }
 
 export interface IInnerProps extends IOuterProps {
@@ -32,7 +33,8 @@ export interface IState {
 class InputView extends React.Component<IInnerProps, IState> {
 	public static defaultProps = {
 		type: "text",
-	}
+		wrapperClassName: '',
+	};
 
 	constructor(props: IInnerProps) {
 		super(props);
@@ -81,6 +83,7 @@ class InputView extends React.Component<IInnerProps, IState> {
 			className,
 			mask = '',
 			maskChar = '_',
+			wrapperClassName,
 			...rest
 		} = this.props;
 
@@ -97,7 +100,7 @@ class InputView extends React.Component<IInnerProps, IState> {
 
 		return (
 			<div
-				className={classes.wrapper}
+				className={classes.wrapper + ' ' + wrapperClassName}
 			>
 				{!!iconSlotLeft && (
 					<div className={classes.slotLeft}>{iconSlotLeft}</div>
