@@ -61,6 +61,12 @@ class PopupView extends React.Component<IInnerProps, IState> {
 		}
 	};
 
+	private handleClickOutside = (event: React.MouseEvent<HTMLElement>) => {
+		if (this.popupElement && !this.popupElement.contains(event.target as HTMLElement)) {
+			this.setState({ open: false });
+		}
+	}
+
 	private isElementInPopover(element: Element) {
 		return this.popupElement != null && this.popupElement.contains(element);
 	}
@@ -82,6 +88,7 @@ class PopupView extends React.Component<IInnerProps, IState> {
 					innerRef={this.popupRef}
 					placement="bottom"
 					className={classes.wrapper}
+					onClick={this.handleClickOutside}
 				>
 					{open && (
 						<Panel
