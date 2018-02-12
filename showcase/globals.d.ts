@@ -24,6 +24,7 @@ declare module "kot-kit" {
 	export const StyleContextProvider: any;
 	export const IconProvider: any;
 	export const Modal: any;
+	export const Popup: any;
 }
 
 // @TODO fix something pls

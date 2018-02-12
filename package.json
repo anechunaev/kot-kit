@@ -63,7 +63,8 @@
   },
   "dependencies": {
     "lodash-es": ">=4",
-    "marked": "^0.3.12"
+    "marked": "^0.3.12",
+    "react-popper": "^0.8.2"
   },
   "peerDependencies": {
     "classnames": ">=2",
