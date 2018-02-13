@@ -2,6 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import { Manager, Target, Popper, Arrow } from 'react-popper';
 import Panel from '../Panel';
+import Transition from 'react-transition-group/Transition';
 
 export interface IOuterProps {
 	danger?: boolean;
@@ -25,12 +26,24 @@ export interface IState {
 	open: boolean;
 }
 
+const duration = 200;
+const defaultStyle = {
+	transition: `opacity ${duration}ms ease-in-out`,
+	opacity: 0,
+	willChange: 'opacity',
+};
+
+const transitionStyles: Dictionary<any> = {
+	entering: { opacity: 0 },
+	entered: { opacity: 1 },
+};
+
 class PopupView extends React.Component<IInnerProps, IState> {
 	public static defaultProps = {
 		danger: false,
 		warning: false,
 		open: false,
-		position: 'auto',
+		position: 'bottom',
 		usePortal: true,
 		popupRef: () => {},
 		targetRef: () => {},
@@ -71,20 +84,20 @@ class PopupView extends React.Component<IInnerProps, IState> {
 		return this.popupElement != null && this.popupElement.contains(element);
 	}
 
-	componentDidMount() {
+	public componentDidMount() {
 		document.addEventListener('mousedown', this.handleClickOutside);
 	}
 
-	componentWillUnmount() {
+	public componentWillUnmount() {
 		document.removeEventListener('mousedown', this.handleClickOutside);
 	}
 
 	public render() {
-		const { classes, className, targetClassName } = this.props;
+		const { classes, className, targetClassName, position } = this.props;
 		const { open } = this.state;
 		const targetProps = {
 			onClick: this.handleTargetClick,
-			className: cn(targetClassName),
+			className: targetClassName,
 		};
 
 		return (
@@ -92,25 +105,48 @@ class PopupView extends React.Component<IInnerProps, IState> {
 				<Target {...targetProps} innerRef={this.targetRef}>
 					{typeof this.props.children === "object" && this.props.children !== null ? this.props.children : null}
 				</Target>
-				<Popper
-					innerRef={this.popupRef}
-					placement="bottom"
-					className={classes.wrapper}
+				<Transition
+					in={open}
+					timeout={duration}
 				>
-					{open && (
-						<Panel
-							onClick={this.handleClickOutside}
-							className={cn({
-								[classes.popup]: true,
-								[classes.danger]: this.props.danger,
-								[classes.warning]: this.props.warning,
-							})}
+					{(state: string) => (
+						<Popper
+							innerRef={this.popupRef}
+							placement={position}
+							className={classes.wrapper}
+							style={{
+								...defaultStyle,
+								...transitionStyles[state],
+							}}
 						>
-							Popper Content
-							<Arrow />
-						</Panel>
+							{state !== "exited" && (
+								<Panel
+									withMargin={false}
+									onClick={this.handleClickOutside}
+									className={cn({
+										[classes.popup]: true,
+										[classes.danger]: this.props.danger,
+										[classes.warning]: this.props.warning,
+									})}
+								>
+									Popper Content<br />dfgadfgsd<br />adfgsdfg<br />Asdfgsdfg<br />dfgsdfgsd<br />zdfgsdf
+								</Panel>
+							)}
+							<Arrow className={classes.arrow}>
+								<svg style={{ display: 'block', padding: '0 15px' }} viewBox="0 0 20 7" width="20" height="7">
+									<defs>
+										<filter id="f" x="0" y="0">
+											<feOffset result="o" in="SourceAlpha" dx="0" dy="5" />
+											<feGaussianBlur result="b" in="o" stdDeviation="3" />
+											<feBlend in="SourceGraphic" in2="b" mode="normal" />
+										</filter>
+									</defs>
+									<path className={classes.arrowShape} d="M0,7C4,6,4,6,10,1C16,6,16,6,20,7" strokeWidth="1" filter="url(#f)" />
+								</svg>
+							</Arrow>
+						</Popper>
 					)}
-				</Popper>
+				</Transition>
 			</Manager>
 		);
 	}
