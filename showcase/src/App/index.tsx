@@ -11,7 +11,7 @@ import {
 } from 'kot-kit';
 import { Route } from 'react-router-dom';
 
-const styles = {
+const styles = (theme: any) => ({
 	toggle: {
 		flex: [0, 0, '110px'],
 	},
@@ -24,7 +24,10 @@ const styles = {
 		width: '100%',
 		margin: [10, 'auto'],
 	},
-}
+	'@global body': {
+		font: theme.fonts.primary.style.paragraphMedium
+	},
+})
 import WelcomeArticle from '../docs/Welcome';
 
 

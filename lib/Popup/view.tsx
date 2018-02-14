@@ -9,7 +9,7 @@ export interface IOuterProps {
 	danger?: boolean;
 	warning?: boolean;
 	position?: 'auto' | 'top' | 'bottom' | 'left' | 'right';
-	usePortal?: boolean;
+	usePortal?: boolean; // @TODO not implemented yet
 	popupRef?: (n: HTMLElement) => void;
 	targetRef?: (n: HTMLElement) => void;
 	targetElement: React.ReactElement<any>;
