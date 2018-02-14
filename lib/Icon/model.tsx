@@ -14,7 +14,7 @@ class IconModel extends React.Component<IInnerProps> {
 	public static defaultProps = {
 		slot: 'left',
 	};
-	private svgNode: SVGSVGElement;
+	private svgNode: SVGSVGElement | null = null;
 
 	private getSvgNode = (node: SVGSVGElement) => this.svgNode = node;
 

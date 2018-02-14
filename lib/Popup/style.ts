@@ -44,6 +44,10 @@ export default (theme: any) => ({
 		position: 'absolute',
 		display: 'block',
 	},
+	arrowSVG: {
+		display: 'block',
+		padding: [0, 15],
+	},
 	popup: {
 		...theme.mixins.passive.default(theme),
 	},
@@ -79,4 +83,18 @@ export default (theme: any) => ({
 			fill: '#ffe074',
 		},
 	},
+	closeButton: {
+		position: 'absolute',
+		width: 10,
+		height: 10,
+		padding: 5,
+		right: 0,
+		top: 0,
+		cursor: 'pointer',
+		color: theme.palette.link.default.normal,
+
+		'&:hover': {
+			color: theme.palette.link.default.hover,
+		},
+	}
 });

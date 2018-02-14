@@ -2,28 +2,29 @@ import * as React from 'react';
 import cn from 'classnames';
 import { Manager, Target, Popper, Arrow } from 'react-popper';
 import Panel from '../Panel';
+import Icon from '../Icon';
 import Transition from 'react-transition-group/Transition';
 
 export interface IOuterProps {
 	danger?: boolean;
 	warning?: boolean;
-	open?: boolean;
 	position?: 'auto' | 'top' | 'bottom' | 'left' | 'right';
 	usePortal?: boolean;
 	popupRef?: (n: HTMLElement) => void;
 	targetRef?: (n: HTMLElement) => void;
-	disabled?: boolean;
-
+	targetElement: React.ReactElement<any>;
 	targetClassName?: string;
+	contentClassName?: string;
+	withCloseButton?: boolean;
 }
 
 export interface IInnerProps extends IOuterProps {
 	classes: Dictionary<string>;
 	className?: string;
-}
-
-export interface IState {
 	open: boolean;
+	handleTargetClick: () => void;
+	handleClickOutside: () => void;
+	handleCloseButtonClick: () => void;
 }
 
 const duration = 200;
@@ -38,72 +39,44 @@ const transitionStyles: Dictionary<any> = {
 	entered: { opacity: 1 },
 };
 
-class PopupView extends React.Component<IInnerProps, IState> {
+class PopupView extends React.PureComponent<IInnerProps> {
 	public static defaultProps = {
 		danger: false,
 		warning: false,
-		open: false,
 		position: 'bottom',
 		usePortal: true,
 		popupRef: () => {},
 		targetRef: () => {},
-		disabled: false,
+		withCloseButton: false,
 	};
-
-	public popupElement: HTMLElement;
-	public targetElement: HTMLElement;
-	//private isShadowMounting = false;
-	private popupRef = (node: HTMLElement) => {
-		this.popupElement = node;
-		this.props.popupRef && this.props.popupRef(node);
-	}
-	private targetRef = (node: HTMLElement) => {
-		this.targetElement = node;
-		this.props.targetRef && this.props.targetRef(node);
-	}
-
-	constructor(props: IInnerProps) {
-		super(props);
-
-		this.state = { open: false };
-	}
-
-	private handleTargetClick = (e: React.MouseEvent<HTMLElement>) => {
-		if (!this.props.disabled && !this.isElementInPopover(e.target as HTMLElement)) {
-			this.setState({ open: !this.state.open });
-		}
-	};
-
-	private handleClickOutside = (event: MouseEvent) => {
-		if (this.popupElement && !this.popupElement.contains(event.target as HTMLElement)) {
-			this.setState({ open: false });
-		}
-	}
-
-	private isElementInPopover(element: Element) {
-		return this.popupElement != null && this.popupElement.contains(element);
-	}
-
-	public componentDidMount() {
-		document.addEventListener('mousedown', this.handleClickOutside);
-	}
-
-	public componentWillUnmount() {
-		document.removeEventListener('mousedown', this.handleClickOutside);
-	}
 
 	public render() {
-		const { classes, className, targetClassName, position } = this.props;
-		const { open } = this.state;
+		const {
+			classes,
+			className,
+			targetClassName,
+			contentClassName,
+			position,
+			open,
+			danger,
+			warning,
+			targetRef,
+			popupRef,
+			targetElement,
+			handleClickOutside,
+			handleTargetClick,
+			handleCloseButtonClick,
+			withCloseButton,
+		} = this.props;
 		const targetProps = {
-			onClick: this.handleTargetClick,
+			onClick: handleTargetClick,
 			className: targetClassName,
 		};
 
 		return (
 			<Manager tag="span" className={className}>
-				<Target {...targetProps} innerRef={this.targetRef}>
-					{typeof this.props.children === "object" && this.props.children !== null ? this.props.children : null}
+				<Target {...targetProps} innerRef={targetRef}>
+					{targetElement}
 				</Target>
 				<Transition
 					in={open}
@@ -111,9 +84,9 @@ class PopupView extends React.Component<IInnerProps, IState> {
 				>
 					{(state: string) => (
 						<Popper
-							innerRef={this.popupRef}
+							innerRef={popupRef}
 							placement={position}
-							className={classes.wrapper}
+							className={cn(classes.wrapper, contentClassName)}
 							style={{
 								...defaultStyle,
 								...transitionStyles[state],
@@ -122,18 +95,23 @@ class PopupView extends React.Component<IInnerProps, IState> {
 							{state !== "exited" && (
 								<Panel
 									withMargin={false}
-									onClick={this.handleClickOutside}
+									onClick={handleClickOutside}
 									className={cn({
 										[classes.popup]: true,
-										[classes.danger]: this.props.danger,
-										[classes.warning]: this.props.warning,
+										[classes.danger]: danger,
+										[classes.warning]: warning,
 									})}
 								>
-									Popper Content<br />dfgadfgsd<br />adfgsdfg<br />Asdfgsdfg<br />dfgsdfgsd<br />zdfgsdf
+									{this.props.children}
+									{withCloseButton && (
+										<div onClick={handleCloseButtonClick} className={classes.closeButton}>
+											<Icon size={10} name="close" />
+										</div>
+									)}
 								</Panel>
 							)}
 							<Arrow className={classes.arrow}>
-								<svg style={{ display: 'block', padding: '0 15px' }} viewBox="0 0 20 7" width="20" height="7">
+								<svg className={classes.arrowSVG} viewBox="0 0 20 7" width="20" height="7">
 									<defs>
 										<filter id="f" x="0" y="0">
 											<feOffset result="o" in="SourceAlpha" dx="0" dy="5" />
