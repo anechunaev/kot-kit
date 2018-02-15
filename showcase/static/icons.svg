@@ -7,4 +7,5 @@
 <symbol id="menu-tours" viewBox="0 0 7 11"><path fill="currentColor" d="M3.6,0C1.7,0,0,1.5,0,3.4,0,5.9,3.2,11,3.6,11,3.9,11,7,6,7,3.4,7,1.5,5.5,0,3.6,0zm-.1,5.5c-1,0-1.8-.8-1.8-1.8s.8-1.8,1.8-1.8,1.8.8,1.8,1.8-.8,1.8-1.8,1.8z"></path></symbol>
 <symbol id="menu-train" viewBox="0 0 9 12"><path fill="currentColor" d="M8,8V2.4C8,1.5,7,0,4.5,0S1,1.4,1,2.4V8c0,.8,1,1,1,1v1l-2,2h1l2-2h3l2,2h1l-2-2V9s1-.3,1-1zM4,1h1v1H4V1zM2,7h1v1H2V7zm5,1H6V7h1v1zm0-3H2V3h5v2z"></path></symbol>
 <symbol id="close" viewBox="0 0 11 11"><path fill="currentColor" d="M10.4,1.4L9.6.6,5.5,4.8,1.4.6l-.8.8,4.2,4.1L.6,9.6l.8.8,4.1-4.2,4.1,4.2.8-.8-4.2-4.1z"/></symbol>
+<symbol id="arrow-simple" viewBox="0 0 5 10"><path fill="none" stroke="currentColor" d="M0,0L5,5L0,10" stroke-width="1"/></symbol>
 </svg>

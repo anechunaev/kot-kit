@@ -13,6 +13,7 @@ export { default as TrainStationSuggest } from '../lib/TrainStationSuggest';
 export { default as Icon } from '../lib/Icon';
 export { default as Modal } from '../lib/Modal';
 export { default as Popup } from '../lib/Popup';
+export { default as Calendar } from '../lib/Calendar';
 
 export { default as withSuggest } from '../lib/withSuggest';
 export { default as withHints } from '../lib/withHints';

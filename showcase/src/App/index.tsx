@@ -20,7 +20,7 @@ const styles = (theme: any) => ({
 	},
 	pageWrapper: {
 		maxWidth: 1200,
-		minWidth: 1000,
+		minWidth: 800,
 		width: '100%',
 		margin: [10, 'auto'],
 	},
