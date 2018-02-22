@@ -7,11 +7,11 @@ export default (theme: any) => {
 			background: theme.palette.passive.default,
 		},
 		withPadding: {
-			padding: [2 * STEP, 5 * STEP, 3 * STEP, 3 * STEP],
+			padding: [2 * STEP, 5 * STEP, 2 * STEP, 3 * STEP],
 			boxSizing: 'border-box',
 		},
 		withMargin: {
-			margin: [2 * STEP, -5 * STEP, 3 * STEP, -3 * STEP],
+			margin: [2 * STEP, -5 * STEP, 2 * STEP, -3 * STEP],
 			boxSizing: 'content-box',
 		},
 		withShadow: {

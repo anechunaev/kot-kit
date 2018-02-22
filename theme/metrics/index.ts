@@ -6,11 +6,11 @@ export default {
 	box: {
 		primary: {
 			content: [2 * STEP, 3 * STEP, 2 * STEP, 3 * STEP],
-			wrapper: [2 * STEP, 3 * STEP, 3 * STEP, 0],
+			wrapper: [2 * STEP, 3 * STEP, 2 * STEP, 0],
 		},
 		default: {
 			content: [2 * STEP, 3 * STEP, 2 * STEP, 3 * STEP],
-			wrapper: [2 * STEP, 3 * STEP, 3 * STEP, 0],
+			wrapper: [2 * STEP, 3 * STEP, 2 * STEP, 0],
 		},
 		secondary: {
 			content: [1 * STEP, 2 * STEP, 1 * STEP, 2 * STEP],
@@ -19,10 +19,10 @@ export default {
 	},
 	text: {
 		primary: {
-			wrapper: [2 * STEP, 0, 3 * STEP, 0],
+			wrapper: [2 * STEP, 0, 2 * STEP, 0],
 		},
 		default: {
-			wrapper: [2 * STEP, 0, 3 * STEP, 0],
+			wrapper: [2 * STEP, 0, 2 * STEP, 0],
 		},
 		secondary: {
 			wrapper: [2 * STEP, 0, 2 * STEP, 0],

@@ -8,7 +8,6 @@ import {
 	KnobSelect,
 } from './lib';
 import {
-	StyleContextProvider,
 	withStyles,
 	Panel,
 	Text,
@@ -20,7 +19,7 @@ export interface IProps {
 	classes: Dictionary<any>;
 }
 
-class Knobs extends React.Component<IProps, Dictionary<any>> {
+class Knobs extends React.PureComponent<IProps, Dictionary<any>> {
 	constructor(props: IProps) {
 		super(props);
 
@@ -279,9 +278,7 @@ class Knobs extends React.Component<IProps, Dictionary<any>> {
 				</div>
 				<Panel className={this.props.classes.wrapper} withShadow={false}>
 					<Text header>Knobs</Text>
-					<StyleContextProvider secondary>
-						{this.getKnobs()}
-					</StyleContextProvider>
+					{this.getKnobs()}
 				</Panel>
 			</div>
 		)

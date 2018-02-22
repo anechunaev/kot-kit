@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ThemeProvider, { withThemePatched as withTheme } from './theme';
 
-export interface IProps {
+export interface IProps extends React.Props<HTMLDivElement> {
 	theme: any;		// @TODO: theme types
 	primary?: boolean;
 	secondary?: boolean;
