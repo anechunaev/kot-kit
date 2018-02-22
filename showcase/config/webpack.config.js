@@ -47,6 +47,7 @@ module.exports = (env) => ({
 			'.js',
 			'.ts',
 			'.tsx',
+			'.md',
 		],
 		modules: [ resolve(__dirname, '../src'), 'node_modules', ],
 		alias: {
@@ -63,6 +64,20 @@ module.exports = (env) => ({
 					'awesome-typescript-loader',
 				],
 				exclude: /node_modules/,
+			},
+			{
+				test: /\.md$/,
+				loaders: [
+					'html-loader',
+					'markdown-loader',
+				],
+			},
+			{
+				test: /\.css$/,
+				loaders: [
+					'style-loader',
+					'css-loader'
+				],
 			},
 		],
 	},

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { View, Alert, Text, Button } from 'kot-kit';
+import * as readme from '../../../lib/Alert/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
 
 import Knobs from '../Knobs';
 
@@ -17,5 +19,7 @@ export default () => (
 			<Text paragraph>Lorem ipsum dolor sit amet</Text>
 			<Button>Default button</Button>
 		</Alert>
+
+		<MarkdownViewer source={readme} />
 	</View>
 );

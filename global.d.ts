@@ -26,11 +26,6 @@ declare module 'storybook-readme/with-readme' {
 	export default withReadme;
 }
 
-declare module '*.md' {
-	const content: any;
-	export default content;
-}
-
 declare module 'react-jss' {
 	const decorator: (c: any, options?: any) => any;
 	export default decorator;
