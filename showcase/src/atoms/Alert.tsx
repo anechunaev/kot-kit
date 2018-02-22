@@ -1,13 +1,21 @@
 import * as React from 'react';
 import { View, Alert, Text, Button } from 'kot-kit';
 
+import Knobs from '../Knobs';
+
 export default () => (
 	<View>
-		<Alert><Text>Default alert</Text></Alert>
-		<Alert danger><Text>Danger alert</Text></Alert>
+		<Knobs>
+			{({ boolean, text }: any) => (
+				<Alert danger={boolean('Is danger', false)}>
+					{text('Default content', 'Default alert')}
+				</Alert>
+			)}
+		</Knobs>
+
 		<Alert danger title="With title and button">
 			<Text paragraph>Lorem ipsum dolor sit amet</Text>
 			<Button>Default button</Button>
 		</Alert>
 	</View>
-)
+);
