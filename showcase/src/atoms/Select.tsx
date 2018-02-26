@@ -6,6 +6,8 @@ import {
 	Text,
 	View,
 } from 'kot-kit'
+import * as readme from '../../../lib/Select/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
 
 const EXAMPLE_DATA = [
 	'111',
@@ -24,5 +26,7 @@ export default () => (
 				<Select value={EXAMPLE_DATA[2]} onSelect={() => console.log(EXAMPLE_DATA[2])}>Third value: {EXAMPLE_DATA[2]}</Select>
 			</Group>
 		</Panel>
+
+		<MarkdownViewer source={readme} />
 	</View>
 )

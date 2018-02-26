@@ -2,26 +2,26 @@ import * as React from 'react';
 import {
 	View,
 	Input,
-	Group,
 } from 'kot-kit';
+import * as readme from '../../../lib/Input/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
+import Knobs from '../Knobs';
 
 export default () => (
 	<View>
-		<View>
-			<Input defaultValue="Default" />
-		</View>
-		<View>
-			<Input invalid defaultValue="Invalid state" />
-		</View>
-		<View>
-			<Input mask="+7 (999) 999-9999" maskChar="_" />
-		</View>
-		<View>
-			<Group>
-				<Input value="123" />
-				<Input invalid value="123" />
-				<Input disabled value="123" />
-			</Group>
-		</View>
+		<Knobs>
+			{({ text, boolean }: any) => (
+				<Input
+					invalid={boolean('Is invalid?', false)}
+					disabled={boolean('Is disabled?', false)}
+					readOnly={boolean('Read only', false)}
+					mask={text('Mask', '+7 (999) 999-9999')}
+					maskChar={text('Mask char', '_')}
+					placeholder={text('Placeholder', 'Phone number')}
+				/>
+			)}
+		</Knobs>
+
+		<MarkdownViewer source={readme} />
 	</View>
 );

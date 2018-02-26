@@ -15,10 +15,10 @@ class View extends React.Component<IProps> {
 	};
 
 	public render() {
-		const width = this.props.width || 1;
+		const { width = 1, nowrap, className, classes, elementRef, children, ...rest } = this.props;
 		const attributes = {} as any;
 
-		if (typeof this.props.width !== 'undefined') {
+		if (typeof this.props.width !== 'undefined') { // ToDo: кажется можно выпилить проверку
 			attributes.style = {
 				width: width * 100 + '%'
 			}
@@ -27,14 +27,15 @@ class View extends React.Component<IProps> {
 		return (
 			<div
 				className={cn({
-					[this.props.classes.wrapper]: true,
-					[this.props.classes.nowrap]: this.props.nowrap,
-					[this.props.className || '']: !!this.props.className,
+					[classes.wrapper]: true,
+					[classes.nowrap]: nowrap,
+					[className || '']: !!className,
 				})}
-				ref={this.props.elementRef}
+				ref={elementRef}
 				{...attributes}
+				{...rest}
 			>
-				{this.props.children}
+				{children}
 			</div>
 		)
 	}

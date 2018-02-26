@@ -7,10 +7,13 @@ import {
 	Group,
 	Panel,
 } from 'kot-kit';
+import * as readme from '../../../lib/Group/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
+import Knobs from '../Knobs';
 
 export default () => (
 	<ViewBox>
-		<ViewBox width={1}>
+		<ViewBox width={1 / 3}>
 			<Text header large>Group of buttons</Text>
 			<Panel withShadow={false} withMargin={false}>
 				<Group>
@@ -19,16 +22,8 @@ export default () => (
 				</Group>
 			</Panel>
 		</ViewBox>
-		<ViewBox width={1}>
-			<Panel withShadow={false} withMargin={false}>
-				<Group>
-					<Button>М</Button>
-					<Button toggled alternate>Ж</Button>
-				</Group>
-			</Panel>
-		</ViewBox>
 
-		<ViewBox width={1}>
+		<ViewBox width={1 / 3}>
 			<Text header large>Mixed items</Text>
 			<Panel withShadow={false} withMargin={false}>
 				<Group>
@@ -38,7 +33,7 @@ export default () => (
 			</Panel>
 		</ViewBox>
 
-		<ViewBox width={1}>
+		<ViewBox width={1 / 3}>
 			<Text header large>Counter markup</Text>
 			<Panel withShadow={false} withMargin={false}>
 				<Group>
@@ -49,39 +44,21 @@ export default () => (
 			</Panel>
 		</ViewBox>
 
-		<ViewBox width={1}>
-			<Text header large>Vertical group</Text>
-			<Panel withShadow={false} withMargin={false}>
-				<Group vertical>
-					<Input placeholder="Email" type="email" />
-					<Input placeholder="Password" type="password" />
-					<Button>Log in</Button>
-				</Group>
-			</Panel>
+		<ViewBox>
+			<Knobs>
+				{({ boolean }: any) => [
+					<Text header large>Vertical group</Text>,
+					<Panel withShadow={false} withMargin={false}>
+						<Group vertical={boolean('Is vertical?', true)}>
+							<Input expanded placeholder="Email" type="email" />
+							<Input expanded placeholder="Password" type="password" />
+							<Button expanded>Log in</Button>
+						</Group>
+					</Panel>
+				]}
+			</Knobs>
 		</ViewBox>
 
-		<ViewBox width={1}>
-			<Text header large>Mixed group</Text>
-			<Panel withShadow={false} withMargin={false}>
-				<Group vertical>
-					<Group>
-						<Button expanded toggled>Log in</Button>
-						<Button expanded>Register</Button>
-					</Group>
-					<Input placeholder="Email" type="email" />
-					<Input placeholder="Password" type="password" />
-					<Button>Log in</Button>
-				</Group>
-			</Panel>
-			<Panel withShadow={false} withMargin={false}>
-				<Group>
-					<Input value={12} expanded />
-					<Group vertical width={1 / 20}>
-						<Button>↑</Button>
-						<Button>↓</Button>
-					</Group>
-				</Group>
-			</Panel>
-		</ViewBox>
+		<MarkdownViewer source={readme} />
 	</ViewBox>
 )

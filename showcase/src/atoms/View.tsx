@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { View, Text, withStyles } from 'kot-kit';
+import * as readme from '../../../lib/View/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
 
 export default () => {
 	const Showcase = withStyles(() => ({
@@ -37,6 +39,8 @@ export default () => {
 				<View width={5 / 12} className={classes.grid}>5/12</View>
 				<View width={3 / 12} className={classes.grid}>3/12</View>
 			</View>
+
+			<MarkdownViewer source={readme} />
 		</View>
 	));
 

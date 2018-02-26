@@ -8,6 +8,8 @@ import {
 	Text,
 	View,
 } from 'kot-kit';
+import * as readme from '../../../lib/withSuggest/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
 
 const withPetsSuggest = withSuggest((props: any) => (
 	<Suggest {...props}>
@@ -35,5 +37,7 @@ export default () => (
 		<Text paragraph>
 			Я люблю <PetsLink value="кошек" />. Они <AdjectiveLink value="милые" />.
 		</Text>
+
+		<MarkdownViewer source={readme} />
 	</View>
 )

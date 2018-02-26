@@ -1,32 +1,29 @@
 import * as React from 'react';
 import {
-	Text,
 	View,
 	Spinner,
 	Button,
 } from 'kot-kit';
+import * as readme from '../../../lib/Spinner/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
+import Knobs from '../Knobs';
 
 export default () => (
 	<View>
-		<Text header large>Default spinner</Text>
-		<Text paragraph>
-			<Spinner />
-		</Text>
-		
-		<Text header large>Custom spinner</Text>
-		<Text paragraph>
-			<Spinner
-				count={6}
-				width={6}
-				length={12}
-				innerRadius={5}
-				borderRadius={2}
-			/>
-		</Text>
+		<Knobs>
+			{({ number, boolean }: any) => (
+				<Button primary={boolean('Enable dark context', false)}>
+					<Spinner
+						count={number('Line count', 8)}
+						width={number('Line width', 2)}
+						length={number('Line length', 6)}
+						innerRadius={number('Inner radius', 3)}
+						borderRadius={number('Line border radius', 0)}
+					/>
+				</Button>
+			)}
+		</Knobs>
 
-		<Text header large>Default in dark context</Text>
-		<Button primary>
-			<Spinner />
-		</Button>
+		<MarkdownViewer source={readme} />
 	</View>
 )

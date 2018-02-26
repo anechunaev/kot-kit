@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { View, Text, withKeyEventHandler } from 'kot-kit';
+import * as readme from '../../../lib/withKeyEventHandler/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
 
 const Handler = withKeyEventHandler(({ keyName }: {keyName: string}) => <Text paragraph>You pressed: {keyName}</Text>);
 
@@ -26,6 +28,8 @@ class EventRenderer extends React.Component<any, any> {
 						{ key: 'ArrowRight', callback: (e: KeyboardEvent) => { this.setState({ key: 'ArrowRight' }); console.log(e); } },	// tslint:disable-line
 					]}
 				/>
+
+				<MarkdownViewer source={readme} />
 			</View>
 		)
 	}

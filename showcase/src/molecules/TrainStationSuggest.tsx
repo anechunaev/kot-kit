@@ -7,6 +7,8 @@ import {
 	Text,
 	View,
 } from 'kot-kit';
+import * as readme from '../../../lib/TrainStationSuggest/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
 
 const withSuggestComponent = withSuggest(TrainStationSuggest);
 const EnhancedInput = withSuggestComponent(withHiddenValue(Input));
@@ -21,5 +23,7 @@ export default () => (
 				/>
 			</div>
 		</Text>
+
+		<MarkdownViewer source={readme} />
 	</View>
 );

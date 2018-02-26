@@ -10,3 +10,4 @@
 # Props
 | Name | Required | Type | Default value | Description |
 |---|:-:|---|---|---|
+| onSelect |  | `() => void` | `() => {}` |  |

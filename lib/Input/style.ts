@@ -13,6 +13,7 @@ export default (theme: any) => {
 			...theme.mixins.groupItem(theme),
 			padding: ({ iconSlotLeft, iconSlotRight }: any) => getInputPadding(iconSlotLeft, iconSlotRight, inputMetrics.content),
 			minWidth: 80,
+			width: '100%',
 			color: theme.palette.text.default.normal,
 			font: theme.fonts.default,
 		},

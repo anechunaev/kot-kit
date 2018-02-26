@@ -15,7 +15,7 @@ class IconProvider extends React.Component<IInnerProps> {
 	public render() {
 		const { theme, pack, children } = this.props;
 		const patchedTheme = deepmerge.all([{}, theme, {
-			variables: { iconSource: pack }
+			variables: { iconSource: pack || theme.variables.iconSource }
 		}]);
 		const ProviderChildren = Child(children);
 

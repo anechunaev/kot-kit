@@ -91,7 +91,6 @@ class InputView extends React.Component<IInnerProps, IState> {
 			className: cn({
 				[classes.input]: true,
 				[classes.invalid]: invalid,
-				[classes.expanded]: expanded,
 			}, className),
 			value: this.state.value,
 			onChange: this.onInputChange,
@@ -100,7 +99,11 @@ class InputView extends React.Component<IInnerProps, IState> {
 
 		return (
 			<div
-				className={classes.wrapper + ' ' + wrapperClassName}
+				className={cn({
+					[classes.wrapper]: true,
+					[classes.expanded]: expanded,
+					[wrapperClassName + '']: !!wrapperClassName
+				})}
 			>
 				{!!iconSlotLeft && (
 					<div className={classes.slotLeft}>{iconSlotLeft}</div>

@@ -6,6 +6,10 @@ import {
 	Panel,
 	Link,
 } from 'kot-kit';
+import * as readme from '../../../lib/Popup/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
+//import Knobs from '../Knobs';
+
 
 const LinkWithPopup = ({ text, ...rest }: any) => (
 	<Popup
@@ -99,6 +103,8 @@ class PopupShowcase extends React.Component<{}> {
 						Lorem ipsum dolor sit amet
 					</LinkWithPopup>
 				</Panel>
+
+				<MarkdownViewer source={readme} />
 			</View>
 		);
 	}

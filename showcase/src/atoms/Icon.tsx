@@ -1,52 +1,44 @@
 import * as React from 'react';
 import {
-	Text,
 	View,
 	Icon,
 	IconProvider,
 } from 'kot-kit';
+import * as readme from '../../../lib/Icon/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
+import Knobs from '../Knobs';
 
 export default () => (
 	<View>
-		<Text header large>Default icons</Text>
-		<Text paragraph>
-			<Icon size={32} name="menu-avia" />
-			<Icon size={32} name="menu-bus" />
-			<Icon size={32} name="menu-etrain" />
-			<Icon size={32} name="menu-hotels" />
-			<Icon size={32} name="menu-tours-hot" />
-			<Icon size={32} name="menu-tours" />
-			<Icon size={32} name="menu-train" />
-		</Text>
-		<Text paragraph>
-			<Icon size={32} color="#e53935" name="menu-avia" />
-			<Icon size={32} color="#fb8c00" name="menu-bus" />
-			<Icon size={32} color="#fdd835" name="menu-etrain" />
-			<Icon size={32} color="#7cb342" name="menu-hotels" />
-			<Icon size={32} color="#00acc1" name="menu-tours-hot" />
-			<Icon size={32} color="#3949ab" name="menu-tours" />
-			<Icon size={32} color="#5e35b1" name="menu-train" />
-		</Text>
-		<Text paragraph>
-			<Icon size={8} name="menu-avia" />
-			<Icon size={16} name="menu-bus" />
-			<Icon size={24} name="menu-etrain" />
-			<Icon size={32} name="menu-hotels" />
-			<Icon size={40} name="menu-tours-hot" />
-			<Icon size={48} name="menu-tours" />
-			<Icon size={56} name="menu-train" />
-		</Text>
+		<Knobs>
+			{({ select, number, text }: any) => {
+				const pack = select('Icon pack', { default: undefined, material: '/material-icons.svg' }, 'default');
+				const size = number('Size', 32);
+				const color = text('Color', 'rgb(51, 102, 153)');
 
-		<Text header large>Custom icon pack with IconProvider</Text>
-		<Text paragraph>
-			<IconProvider pack="/material-icons.svg">
-				<Icon name="copy" />
-				<Icon name="paste" />
-				<Icon name="file" />
-				<Icon name="folder" />
-				<Icon name="home" />
-				<Icon name="stack" />
-			</IconProvider>
-		</Text>
+				return (
+					<IconProvider pack={pack}>
+						{ !pack ? [
+							<Icon color={color} size={size} name="menu-avia" />,
+							<Icon color={color} size={size} name="menu-bus" />,
+							<Icon color={color} size={size} name="menu-etrain" />,
+							<Icon color={color} size={size} name="menu-hotels" />,
+							<Icon color={color} size={size} name="menu-tours-hot" />,
+							<Icon color={color} size={size} name="menu-tours" />,
+							<Icon color={color} size={size} name="menu-train" />,
+						] : [
+							<Icon color={color} size={size} name="copy" />,
+							<Icon color={color} size={size} name="paste" />,
+							<Icon color={color} size={size} name="file" />,
+							<Icon color={color} size={size} name="folder" />,
+							<Icon color={color} size={size} name="home" />,
+							<Icon color={color} size={size} name="stack" />,
+						]}
+					</IconProvider>
+				)
+			}}
+		</Knobs>
+
+		<MarkdownViewer source={readme} />
 	</View>
 )

@@ -1,9 +1,13 @@
 import * as React from 'react';
 import {
 	View,
+	Panel,
 	Text,
 	Calendar,
 } from 'kot-kit';
+import * as readme from '../../../lib/Calendar/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
+import Knobs from '../Knobs';
 
 export interface IState {
 	selectedDay: Date | null;
@@ -103,83 +107,47 @@ class CalendarShowcase extends React.Component<{}, IState> {
 	
 		return (
 			<View>
-				<View width={1 / 2}>
+				<Panel withShadow={false}>
 					<Text header large>Default calendar</Text>
 					<Text paragraph>
-						<Calendar
-							selectedDays={this.state.selectedDay}
-							onDayClick={this.handleDayClick}
-						/>
+						<Knobs>
+							{({ select, number, boolean }: any) => (
+								<Calendar
+									locale={select('Locale', { ru: 'ru', en: 'en' }, 'ru')}
+									numberOfMonths={number('Number of months', 1)}
+									disabledDays={boolean('Show disabled days', false) ? [
+										{ before: today, after: new Date((new Date()).setDate(today.getDate() + 28)) },
+										today,
+									] : []}
+									selectedDays={this.state.selectedDay}
+									onDayClick={this.handleDayClick}
+								/>
+							)}
+						</Knobs>
 					</Text>
-				</View>
+				</Panel>
 
-				<View width={1 / 2}>
-					<Text header large>Localization</Text>
+				<Panel withShadow={false}>
+					<Text header large>Select date range</Text>
 					<Text paragraph>
 						<Calendar
-							locale="en"
-							selectedDays={this.state.selectedDay}
-							onDayClick={this.handleDayClick}
-						/>
-					</Text>
-				</View>
-
-				<View width={1 / 2}>
-					<Text header large>Disabled days</Text>
-					<Text paragraph>
-						<Calendar
-							disabledDays={[
-								{ before: today, after: new Date((new Date()).setDate(today.getDate() + 28)) },
-								today,
-							]}
-							selectedDays={this.state.selectedDay}
-							onDayClick={this.handleDayClick}
-						/>
-					</Text>
-				</View>
-
-				<View width={1 / 2}>
-					<Text header large>Holidays (day modifiers) and default month</Text>
-					<Text paragraph>
-						<Calendar
-							month={new Date(2018, 5)}
+							selectRange
 							modifiers={{
 								weekend: { daysOfWeek: [0, 6] },
-								holiday: [new Date(2018, 5, 11), new Date(2018, 5, 12)],
-								workday: new Date(2018, 5, 9),
+								start: from,
+								end: entered,
 							}}
-							selectedDays={this.state.selectedDay}
-							onDayClick={this.handleDayClick}
+							numberOfMonths={2}
+							fromMonth={from}
+							selectedDays={selectedRangeDays}
+							disabledDays={disabledRangeDays}
+							onDayClick={this.handleRangeDayClick}
+							onDayMouseEnter={this.handleDayMouseEnter}
 						/>
 					</Text>
-				</View>
+				</Panel>
 
-				<Text header large>Two months calendar</Text>
-				<Text paragraph>
-					<Calendar
-						numberOfMonths={2}
-						selectedDays={this.state.selectedDay}
-						onDayClick={this.handleDayClick}
-					/>
-				</Text>
-
-				<Text header large>Select date range</Text>
-				<Text paragraph>
-					<Calendar
-						selectRange
-						modifiers={{
-							weekend: { daysOfWeek: [0, 6] },
-							start: from,
-							end: entered,
-						}}
-						numberOfMonths={2}
-						fromMonth={from}
-						selectedDays={selectedRangeDays}
-						disabledDays={disabledRangeDays}
-						onDayClick={this.handleRangeDayClick}
-						onDayMouseEnter={this.handleDayMouseEnter}
-					/>
-				</Text>
+				<MarkdownViewer source={readme} />
 			</View>
 		);
 	}

@@ -9,6 +9,8 @@ import {
 	Input,
 	Group,
 } from 'kot-kit';
+import * as readme from '../../../lib/withIcons/readme.md';
+import MarkdownViewer from '../MarkdownViewer';
 
 const FirstButton = withIcons(<Icon name="menu-train" />)(Button);
 const SecondButton = withIcons([
@@ -57,5 +59,7 @@ export default () => (
 				<ThirdInput value="Third input with very long value" />
 			</Group>
 		</Text>
+
+		<MarkdownViewer source={readme} />
 	</View>
 );
