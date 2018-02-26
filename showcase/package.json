@@ -38,7 +38,7 @@
     "awesome-typescript-loader": "^3.4.0",
     "chalk": "^2.3.0",
     "cross-env": "^5.1.1",
-    "css-loader": "^0.28.9",
+    "css-loader": "^0.28.10",
     "html-loader": "^0.5.5",
     "markdown-loader": "^2.0.2",
     "minimist": "^1.2.0",

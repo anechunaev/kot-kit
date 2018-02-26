@@ -3,12 +3,18 @@ import * as ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App/index';
 import { theme, ThemeProvider } from 'kot-kit';
+import { Switch, Route } from 'react-router-dom';
+import Sandbox from './Sandbox';
 
 const Root = (() => {
 	const Chain = () => (
 		<BrowserRouter>
 			<ThemeProvider theme={theme}>
-				<App />
+				<Switch>
+					<Route exact path={`/demo`} component={Sandbox} />
+					<Route exact path={`/sandbox`} component={Sandbox} />
+					<Route path={`*`} component={App} />
+				</Switch>
 			</ThemeProvider>
 		</BrowserRouter>
 	);
