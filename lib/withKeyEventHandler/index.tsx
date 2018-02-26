@@ -32,7 +32,7 @@ const keysDictionary: Dictionary<string> = {
 
 class WithKeyEventHandler extends React.Component<IProps> {
 	private handlers: Handler = {};
-	private rootNode: HTMLElement | Window;
+	private rootNode: HTMLElement | Window = window;
 
 	constructor(props: IProps) {
 		super(props);
