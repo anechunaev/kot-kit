@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IOuterProps extends IBaseOuterProps {
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> {
 	width?: number;
 	nowrap?: boolean;
 }
