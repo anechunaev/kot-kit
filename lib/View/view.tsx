@@ -16,12 +16,14 @@ class View extends React.Component<IInnerProps> {
 	};
 
 	public render() {
-		const { width = 1, nowrap, className, classes, elementRef, children, ...rest } = this.props;
-		const attributes = {
-			style: {
+		const { width, nowrap, className, classes, elementRef, children, ...rest } = this.props;
+		const attributes: Dictionary<any> = {};
+
+		if (typeof width !== 'undefined') {
+			attributes.style = {
 				width: width * 100 + '%'
-			}
-		} as any;
+			};
+		}
 
 		return (
 			<div
