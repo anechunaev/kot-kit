@@ -1,23 +1,22 @@
 import * as React from 'react';
 import cn from 'classnames';
-
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 import Panel from '../Panel';
 import Text from '../Text';
 
-export interface IOuterProps {
-	className?: string;	// @TODO move to default component interface
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> {
 	withMargin?: boolean;
 	danger?: boolean;
 	title?: string;
 }
-export interface IInnerProps extends IOuterProps {
-	classes: Dictionary<string>;
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
 }
 
 class PanelView extends React.Component<IInnerProps> {
 	public static defaultProps = {
 		withMargin: true,
 		danger: false,
+		elementRef: () => {},
 	}
 
 	public render() {
@@ -30,6 +29,7 @@ class PanelView extends React.Component<IInnerProps> {
 				})}
 				withShadow={false}
 				withMargin={this.props.withMargin}
+				elementRef={this.props.elementRef}
 			>
 				{!!this.props.title && (
 					<Text header>{this.props.title}</Text>

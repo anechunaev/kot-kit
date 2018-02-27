@@ -1,22 +1,28 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { IWithIcons } from '../withIcons';
+import {
+	IBaseInnerProps,
+	IBaseOuterProps,
+	IClickableProps,
+	//IEditableProps,
+} from '../base';
 
-export interface IOuterProps extends IWithIcons {
+export interface IOuterProps extends
+	IBaseOuterProps<HTMLButtonElement | HTMLAnchorElement>,
+	IClickableProps<HTMLButtonElement | HTMLAnchorElement>,
+	IWithIcons
+{
 	href?: string;
 	target?: string;
-	onClick?: (e: React.SyntheticEvent<HTMLButtonElement | HTMLAnchorElement>) => any;
 	disabled?: boolean;
-	elementRef?: React.Ref<HTMLButtonElement | HTMLAnchorElement>;
 	tabIndex?: number;
 	expanded?: boolean;
 	primary?: boolean;
 	toggled?: boolean;
-	className?: string;
 }
 
-export interface IInnerProps extends IOuterProps {
-	classes: Dictionary<string>;
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
 }
 
 const Container: React.SFC<IOuterProps> = ({ href, target, children, className, onClick, elementRef, disabled, tabIndex }) => !!href ? (

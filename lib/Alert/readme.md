@@ -1,13 +1,12 @@
 # Description
-Basic alert component
+Компонент Alert для вывода системных сообщений, на которые пользователь должен обратить внимание.
 
 # Usage
 ```javascript
 import { Alert, Text } from 'kot-kit';
 
 export default props => (
-	<Alert>
-		<Text header large>Hello world!</Text>
+	<Alert title="Hello world!">
 		<Text paragraph>Lorem ipsum dolor sit amet</Text>
 	</Alert>
 )
@@ -16,4 +15,6 @@ export default props => (
 # Props
 | Name | Required | Type | Default value | Description |
 |---|:-:|---|---|---|
-| withMargin || `boolean` | `true` | Включает/выключает отступы |
+| danger || `boolean` | `false` | Добавляет стили для сообщения, которому требуется повышенное внимание пользователя |
+| withMargin || `boolean` | `true` | Добавляет или убирает отступы |
+| title || `string` || Заголовок сообщения |

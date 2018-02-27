@@ -2,17 +2,17 @@ import * as React from 'react';
 import Calendar from 'react-day-picker';
 import cn from 'classnames';
 import Icon from '../Icon';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IOuterProps { // @TODO вынести из компонента
+// @TODO check elementRef prop
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> { // @TODO вынести из компонента
 	locale: "ru" | "en";
 	modifiers?: Dictionary<any>; // @TODO описать правильный тип
 	hideNavigation?: boolean;
 	selectRange?: boolean;
 }
 
-export interface IInnerProps extends IOuterProps {
-	classes: Dictionary<string>;
-	className?: string;
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
 }
 
 const WEEKDAYS_SHORT: Dictionary<[string, string, string, string, string, string, string]> = {

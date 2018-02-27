@@ -22,3 +22,5 @@ export default () => (
 ```
 
 # Props
+| Name | Required | Type | Default value | Description |
+|---|:-:|---|---|---|

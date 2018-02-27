@@ -1,28 +1,27 @@
 import * as React from 'react';
 import cn from 'classnames';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IProps {
-	classes: Dictionary<string>;
-	className?: string;
+export interface IOuterProps extends IBaseOuterProps {
 	width?: number;
-	elementRef?: React.Ref<HTMLDivElement>;
 	nowrap?: boolean;
 }
 
-class View extends React.Component<IProps> {
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
+}
+
+class View extends React.Component<IInnerProps> {
 	public static defaultProps = {
 		elementRef: () => {},
 	};
 
 	public render() {
 		const { width = 1, nowrap, className, classes, elementRef, children, ...rest } = this.props;
-		const attributes = {} as any;
-
-		if (typeof this.props.width !== 'undefined') { // ToDo: кажется можно выпилить проверку
-			attributes.style = {
+		const attributes = {
+			style: {
 				width: width * 100 + '%'
 			}
-		}
+		} as any;
 
 		return (
 			<div

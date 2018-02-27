@@ -1,28 +1,31 @@
 import * as React from 'react';
 import cn from 'classnames';
-
+import { IBaseOuterProps, IBaseInnerProps } from '../base';
 import ViewBox from '../View';
 
-export interface IProps {
-	classes: Dictionary<string>;
-	className?: string;
+export interface IOuterProps extends IBaseOuterProps {
 	withPadding?: boolean;
 	withMargin?: boolean;
 	withShadow?: boolean;
 	sizeByContent?: boolean;
 }
 
-class PanelView extends React.Component<IProps> {
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
+}
+
+class PanelView extends React.Component<IInnerProps> {
 	public static defaultProps = {
 		withPadding: true,
 		withMargin: true,
 		withShadow: true,
 		sizeByContent: false,
+		elementRef: () => {},
 	};
 
 	public render() {
 		return (
 			<ViewBox
+				elementRef={this.props.elementRef}
 				className={cn({
 					[this.props.classes.panel]: true,
 					[this.props.classes.withPadding]: this.props.withPadding,
