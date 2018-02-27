@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { IBaseOuterProps, IBaseInnerProps } from '../base';
 import ViewBox from '../View';
 
-export interface IOuterProps extends IBaseOuterProps {
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> {
 	withPadding?: boolean;
 	withMargin?: boolean;
 	withShadow?: boolean;
