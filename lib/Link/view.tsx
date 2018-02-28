@@ -1,25 +1,28 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { IWithIcons } from '../withIcons';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IOuterProps extends IWithIcons {
+export type CustomLink = HTMLSpanElement | HTMLAnchorElement;
+
+export interface IOuterProps extends
+	IBaseOuterProps<CustomLink>,
+	IWithIcons
+{
 	pseudo?: boolean;
-	className?: string;
 }
 
-export interface IInnerProps extends IOuterProps {
-	classes: Dictionary<string>;
-	children: React.ReactChildren;
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
 }
 
-const getChildren = ({ iconSlotLeft, iconSlotRight, classes, children }: IInnerProps) => {
+const getChildren = ({ iconSlotLeft, iconSlotRight, classes, children }: IInnerProps & React.Props<CustomLink> ) => {
 	return [
 		!!iconSlotLeft && (
-			<div className={classes.slotLeft}>{iconSlotLeft}</div>
+			<div key="slotLeft" className={classes.slotLeft}>{iconSlotLeft}</div>
 		),
 		children,
 		!!iconSlotRight && (
-			<div className={classes.slotRight}>{iconSlotRight}</div>
+			<div key="slotRight" className={classes.slotRight}>{iconSlotRight}</div>
 		),
 	]
 }
@@ -31,7 +34,7 @@ class InputView extends React.PureComponent<IInnerProps> {
 	};
 
 	public render() {
-		const { classes, pseudo, children, className, iconSlotLeft, iconSlotRight, ...rest } = this.props;
+		const { classes, pseudo, children, className, iconSlotLeft, iconSlotRight, theme, ...rest } = this.props;
 		return pseudo ? (
 			<span
 				className={cn(classes.base, classes.pseudo, className)}
@@ -46,7 +49,7 @@ class InputView extends React.PureComponent<IInnerProps> {
 			>
 				{getChildren(this.props)}
 			</a>
-		)
+		);
 	}
 }
 

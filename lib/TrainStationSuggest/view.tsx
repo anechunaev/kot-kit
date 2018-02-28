@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Suggest from '../Suggest';
+import Suggest, { IProps as ISuggestProps } from '../Suggest';
 import Select from '../Select';
 import { DEFAULT_SUGGEST_LENGTH } from './constants';
 
-export interface IOuterProps {
+export interface IOuterProps extends ISuggestProps {
 	length?: number;
 }
 export interface IInnerProps extends IOuterProps {

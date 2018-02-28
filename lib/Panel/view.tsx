@@ -23,19 +23,20 @@ class PanelView extends React.Component<IInnerProps> {
 	};
 
 	public render() {
+		const { classes, withPadding, withMargin, withShadow, sizeByContent, className, children, ...rest } = this.props;
 		return (
 			<ViewBox
-				elementRef={this.props.elementRef}
+				{...rest}
 				className={cn({
-					[this.props.classes.panel]: true,
-					[this.props.classes.withPadding]: this.props.withPadding,
-					[this.props.classes.withMargin]: this.props.withMargin,
-					[this.props.classes.withShadow]: this.props.withShadow,
-					[this.props.classes.sizeByContent]: this.props.sizeByContent,
-					[this.props.className || '']: !!this.props.className,
+					[classes.panel]: true,
+					[classes.withPadding]: withPadding,
+					[classes.withMargin]: withMargin,
+					[classes.withShadow]: withShadow,
+					[classes.sizeByContent]: sizeByContent,
+					[className || '']: !!className,
 				})}
 			>
-				{this.props.children}
+				{children}
 			</ViewBox>
 		);
 	}

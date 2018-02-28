@@ -4,8 +4,9 @@ import { Manager, Target, Popper, Arrow } from 'react-popper';
 import Panel from '../Panel';
 import Icon from '../Icon';
 import Transition from 'react-transition-group/Transition';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IOuterProps {
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> {
 	danger?: boolean;
 	warning?: boolean;
 	position?: 'auto' | 'top' | 'bottom' | 'left' | 'right';
@@ -18,9 +19,7 @@ export interface IOuterProps {
 	withCloseButton?: boolean;
 }
 
-export interface IInnerProps extends IOuterProps {
-	classes: Dictionary<string>;
-	className?: string;
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
 	open: boolean;
 	handleTargetClick: () => void;
 	handleClickOutside: () => void;

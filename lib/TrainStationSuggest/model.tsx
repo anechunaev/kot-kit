@@ -2,20 +2,17 @@ import * as React from 'react';
 import { throttle } from 'lodash-es';
 import { sendGetRequest } from '../dataHelpers';
 import * as Constants from './constants';
-import { IInnerProps as IViewProps } from './view';
-import { IProps } from './index';
+import { IOuterProps as IViewProps, IInnerProps as IViewInnerProps } from './view';
 
 const sendGetRequestThrottled = throttle(sendGetRequest, Constants.DEFAULT_THROTTLE);
 
 
-export interface IOuterProps { // @TODO: extends IEditableProps
-	value?: string;
+export interface IOuterProps {
 	url?: string;
 	visible?: boolean;
-	defaultValue?: string;
 }
-export interface IInnerProps extends IOuterProps {
-	trainStationSuggestInnerComponent: React.ComponentType<IViewProps>
+export interface IInnerProps extends IViewProps, IOuterProps {
+	trainStationSuggestInnerComponent: React.ComponentType<IViewInnerProps>
 }
 export interface IState {
 	items: Array<{ id: string | number, value: string }>;
@@ -68,17 +65,17 @@ class TrainStationSuggestModel extends React.Component<IInnerProps, IState> {
 	}
 
 	public render() {
-		const { trainStationSuggestInnerComponent } = this.props;
+		const { trainStationSuggestInnerComponent, ...rest } = this.props;
 		const View = trainStationSuggestInnerComponent;
 
 		return (
 			<View
-				{...this.props}
+				{...rest}
 				items={this.state.items}
 			/>
 		);
 	}
 }
 
-export default (View: React.ComponentType<IViewProps>) =>
-	(props: IProps) => <TrainStationSuggestModel {...props} trainStationSuggestInnerComponent={View} />
+export default (View: React.ComponentType<IViewInnerProps>) =>
+	(props: IViewProps & IOuterProps) => <TrainStationSuggestModel {...props} trainStationSuggestInnerComponent={View} />

@@ -1,15 +1,8 @@
 import { withStyles } from 'provider';
 import styles from './style';
-import View from './view';
+import View, { IOuterProps as IViewProps } from './view';
 
-export interface IProps {
-	count?: number;
-	width?: number;
-	length?: number;
-	borderRadius?: number;
-	innerRadius?: number;
-	className?: string;
-}
+export type IProps = IViewProps;
 
 export const defaultProps = {
 	count: 8,

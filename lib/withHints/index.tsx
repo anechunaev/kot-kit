@@ -9,7 +9,7 @@ export interface IHintProps {
 	onClick: (hint: Hint) => void;
 }
 
-export interface IInputProps {
+export interface IInputProps { // @TODO import IEditableProps from ../base
 	value?: string;
 	defaultValue?: string;
 	hiddenInputProps?: any;

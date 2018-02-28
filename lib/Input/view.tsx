@@ -2,27 +2,27 @@ import * as React from 'react';
 import cn from 'classnames';
 import { IWithIcons } from '../withIcons';
 import InputMask from 'react-input-mask';
+import { IBaseInnerProps, IBaseOuterProps, IEditableProps } from '../base';
 
-export interface IOuterProps extends IWithIcons {
-	value?: string;
-	defaultValue?: string;
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+export interface IOuterProps extends
+	IBaseOuterProps<HTMLInputElement>,
+	IEditableProps<HTMLInputElement>,
+	IWithIcons
+{
 	invalid?: boolean;
 	expanded?: boolean;
 	type?: 'text' | 'password' | 'email' | 'tel' | 'number';
 	placeholder?: string;
-	className?: string; // @TODO в базовый интерфейс
 	mask?: string; // @TODO readme (react-input-mask)
 	maskChar?: string; // @TODO readme (react-input-mask)
 	alwaysShowMask?: boolean; // @TODO readme (react-input-mask)
 	formatChars?: any; // @TODO readme (react-input-mask)
 	wrapperClassName?: string;
+	wrapperRef?: React.Ref<HTMLDivElement>;
 }
 
-export interface IInnerProps extends IOuterProps {
-	classes: Dictionary<string>,
-	theme?: any, // @TODO разобраться, откуда появилась
-	children?: React.ReactNode | React.ReactNode[]; // @TODO React d.ts patch
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
+	children?: React.ReactNode | React.ReactNode[]; // @TODO React d.ts patch (v.16)
 }
 
 export interface IState {
@@ -36,7 +36,7 @@ class InputView extends React.Component<IInnerProps, IState> {
 		wrapperClassName: '',
 	};
 
-	constructor(props: IInnerProps) {
+	constructor(props: IInnerProps) { // @TODO: move to model?
 		super(props);
 
 		this.state = {
@@ -84,6 +84,7 @@ class InputView extends React.Component<IInnerProps, IState> {
 			mask = '',
 			maskChar = '_',
 			wrapperClassName,
+			wrapperRef = () => {},
 			...rest
 		} = this.props;
 
@@ -99,6 +100,7 @@ class InputView extends React.Component<IInnerProps, IState> {
 
 		return (
 			<div
+				ref={wrapperRef}
 				className={cn({
 					[classes.wrapper]: true,
 					[classes.expanded]: expanded,

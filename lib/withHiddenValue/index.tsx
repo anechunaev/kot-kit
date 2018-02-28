@@ -8,7 +8,7 @@ export interface IHiddenProps {
 	name?: string;
 }
 
-export interface IEditableProps {
+export interface IEditableProps { // @TODO import from ../base
 	value?: string;
 	defaultValue?: string;
 	name?: string;

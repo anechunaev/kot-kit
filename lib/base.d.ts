@@ -1,14 +1,19 @@
 export interface IBaseOuterProps<T> {
 	className?: string;
 	elementRef?: React.Ref<T>;
+	theme?: any; // @TODO описать тему
 }
 
 export interface IBaseInnerProps {
 	classes: Dictionary<string>;
 }
 
-export interface IEditableProps {
-
+export interface IEditableProps<T> {
+	value?: string;
+	defaultValue?: string;
+	onChange?: (e: React.ChangeEvent<T>) => void;
+	onFocus?: (e: React.FocusEvent<T>) => void;
+	onBlur?: (e: React.SyntheticEvent<T>) => void;
 }
 
 export interface ISelectableProps {

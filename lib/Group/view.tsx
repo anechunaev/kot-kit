@@ -2,17 +2,19 @@ import * as React from 'react';
 import deepmerge from 'deepmerge';
 import { ThemeProvider } from 'provider';
 import cn from 'classnames';
-
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 import ViewBox from '../View';
 
-export interface IProps {
-	theme: any; // @TODO patch decorator provider/withTheme
-	classes: Dictionary<string>;
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> {
 	vertical?: boolean;
 	withMargin?: boolean;
 }
 
-class GroupView extends React.Component<IProps> {
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
+	theme: any; // @TODO patch decorator provider/withTheme
+}
+
+class GroupView extends React.Component<IInnerProps> {
 	public static defaultProps = {
 		withMargin: true,
 	};
@@ -43,6 +45,7 @@ class GroupView extends React.Component<IProps> {
 						[this.props.classes.vertical]: this.props.vertical,
 						[this.props.classes.wrapper]: this.props.withMargin,
 					})}
+					elementRef={this.props.elementRef}
 				>
 					{React.Children.map(
 						this.props.children,

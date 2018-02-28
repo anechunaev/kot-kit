@@ -1,9 +1,8 @@
 import * as React from 'react';
 import cn from 'classnames';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IProps {
-	classes: Dictionary<string>;
-	className?: string;
+export interface IOuterProps extends IBaseOuterProps<HTMLSpanElement> {
 	header?: boolean;
 	large?: boolean;
 	extraLarge?: boolean;
@@ -12,22 +11,41 @@ export interface IProps {
 	paragraph?: boolean;
 }
 
-class TextView extends React.PureComponent<IProps> {
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
+}
+
+class TextView extends React.PureComponent<IInnerProps> {
 	public render() {
+		const {
+			className,
+			classes,
+			theme,
+			children,
+			elementRef,
+			header,
+			paragraph,
+			extraSmall,
+			small,
+			large,
+			extraLarge,
+			...rest
+		} = this.props;
 		return (
 			<span
+				ref={elementRef}
 				className={cn({
-					[this.props.className || '']: !!this.props.className,
-					[this.props.classes.base]: true,
-					[this.props.classes.header]: this.props.header,
-					[this.props.classes.paragraph]: this.props.paragraph,
-					[this.props.classes.extraSmall]: this.props.extraSmall,
-					[this.props.classes.small]: this.props.small,
-					[this.props.classes.large]: this.props.large,
-					[this.props.classes.extraLarge]: this.props.extraLarge,
+					[className || '']: !!className,
+					[classes.base]: true,
+					[classes.header]: header,
+					[classes.paragraph]: paragraph,
+					[classes.extraSmall]: extraSmall,
+					[classes.small]: small,
+					[classes.large]: large,
+					[classes.extraLarge]: extraLarge,
 				})}
+				{...rest}
 			>
-				{this.props.children}
+				{children}
 			</span>
 		)
 	}

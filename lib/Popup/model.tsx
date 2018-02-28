@@ -2,12 +2,12 @@ import * as React from 'react';
 import { IOuterProps as IViewProps } from './view';
 import { IProps } from './index';
 
-export interface IOuterProps extends IViewProps {
+export interface IOuterProps {
 	open?: boolean;
 	disabled?: boolean;
 }
 
-export interface IInnerProps extends IOuterProps {
+export interface IInnerProps extends IViewProps, IOuterProps {
 	popupViewInnerComponent: React.ComponentType<IViewProps>;
 }
 

@@ -16,7 +16,7 @@ class View extends React.Component<IInnerProps> {
 	};
 
 	public render() {
-		const { width, nowrap, className, classes, elementRef, children, ...rest } = this.props;
+		const { width, nowrap, className, classes, elementRef, children, theme, ...rest } = this.props;
 		const attributes: Dictionary<any> = {};
 
 		if (typeof width !== 'undefined') {

@@ -1,17 +1,14 @@
 import * as React from 'react';
 import { withTheme } from 'provider';
 import cn from 'classnames';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IOuterProps {
+export interface IOuterProps extends IBaseOuterProps<SVGSVGElement> {
 	name: string;
 	size?: number;
 	color?: string;
-	elementRef?: (n: SVGSVGElement) => void; // @TODO Move to IBaseComponentProps
-	className?: string;
 }
-export interface IInnerProps extends IOuterProps {
-	theme: any;
-	classes: Dictionary<string>;
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
 }
 
 class IconView extends React.Component<IInnerProps> {

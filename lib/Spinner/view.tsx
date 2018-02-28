@@ -1,12 +1,22 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { IProps as IBaseProps, defaultProps } from './index';
+import { defaultProps } from './index';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IProps extends IBaseProps {
-	classes: Dictionary<string>;
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> {
+	count?: number;
+	width?: number;
+	length?: number;
+	borderRadius?: number;
+	innerRadius?: number;
 }
 
-const SpinnerView: React.SFC<IProps> = ({ classes, className, count = defaultProps.count }) => (
+export interface IInnerProps extends IBaseInnerProps, IOuterProps {
+}
+
+// @TODO pure component + refactor
+// @TODO add elementRef
+const SpinnerView: React.SFC<IInnerProps> = ({ classes, className, count = defaultProps.count }) => (
 	<div
 		className={cn(classes.wrapper, className)}
 		role="progressbar"

@@ -1,31 +1,42 @@
 import * as React from 'react';
-import { default as Text } from '../Text';
+import { IBaseInnerProps, IBaseOuterProps } from '../base';
 
-export interface IOuterProps {
+export interface IOuterProps extends IBaseOuterProps<HTMLDivElement> {
 	selected?: boolean;
-	className?: string;
 	onSelect?: () => void;
 }
 
-export interface IInnerProps extends IOuterProps {
-	classes: Dictionary<string>;
+export interface IInnerProps extends IOuterProps, IBaseInnerProps {
 }
+class SelectView extends React.PureComponent<IInnerProps> {
+	public static defaultProps = {
+		selected: false,
+		onSelect: () => {},
+	};
 
-const SelectView: React.SFC<IInnerProps> = ({
-	children,
-	className,
-	selected = false,
-	classes,
-	onSelect = () => {},
-	...rest
-}) => (
-	<div
-		onMouseDown={onSelect}
-		className={`${classes.item} ${selected ? classes.selected : ''} ${className}`}
-		{...rest}
-	>
-		<Text>{children}</Text>
-	</div>
-);
+	public render() {
+		const {
+			children,
+			className,
+			selected,
+			classes,
+			onSelect,
+			elementRef,
+			theme,
+			...rest
+		} = this.props;
+
+		return (
+			<div
+				ref={elementRef}
+				onMouseDown={onSelect}
+				className={`${classes.item} ${selected ? classes.selected : ''} ${className}`}
+				{...rest}
+			>
+				{children}
+			</div>
+		);
+	}
+}
 
 export default SelectView;
