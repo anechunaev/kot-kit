@@ -2,31 +2,7 @@ type Dictionary<T> = {
 	[index: string]: T;
 }
 
-declare module 'storybook-addon-jsx' {
-	const addon: any;
-	export default addon; 
-}
-
-declare module '@storybook/addon-knobs' {
-	type Decorator<T> = (label: string, value: T) => T;
-	type Select = (label: string, options: Dictionary<any>, defaultValue: string) => string;
-	export const withKnobs: () => void;
-	export const text: Decorator<string>;
-	export const boolean: Decorator<boolean>;
-	export const number: Decorator<number>;
-	export const color: Decorator<string>;
-	export const object: Decorator<any>;
-	export const array: Decorator<Array<any>>;
-	export const select: Select;
-	export const date: Decorator<Date>;
-}
-
-declare module 'storybook-readme/with-readme' {
-	const withReadme: (readme: any) => any;
-	export default withReadme;
-}
-
-declare module 'react-jss' {
+declare module 'react-jss' { // @TODO @types/react-jss
 	const decorator: (c: any, options?: any) => any;
 	export default decorator;
 	export const ThemeProvider: any;
@@ -37,26 +13,20 @@ declare module 'react-jss' {
 	export const createGenerateClassName: () => any;
 }
 
-declare module '@storybook/addon-actions' {
-	export const action: (msg: string) => () => void;
-}
-
-declare module 'jss' {
+declare module 'jss' { // @TODO @types/jss
 	export const create: any;
 }
 
-declare module 'jss-preset-default' {
+declare module 'jss-preset-default' { // @TODO @types/jss-preset-default
 	const preset: () => void;
 	export default preset;
 }
 
-declare module 'classnames' {
+declare module 'classnames' { // @TODO @types/classnames
 	const cn: (c: any, c2?: any, c3?: any) => string;
 	export default cn;
 }
 
-// @TODO fix something pls
-// webpack patch
-interface NodeRequire {
+interface NodeRequire { // @TODO webpack patch
 	context?: any;
 }

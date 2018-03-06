@@ -51,7 +51,7 @@ module.exports = (env) => ({
 		],
 		modules: [ resolve(__dirname, '../src'), 'node_modules', ],
 		alias: {
-			"kot-kit": resolve(__dirname, '../../dist/entries/lib.js'),
+			"kot-kit": resolve(__dirname, '../../dist/lib.js'),
 		},
 	},
 	devtool: 'cheap-module-source-map',

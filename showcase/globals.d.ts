@@ -28,9 +28,7 @@ declare module "kot-kit" {
 	export const Calendar: any;
 }
 
-// @TODO fix something pls
-// webpack patch
-interface NodeRequire {
+interface NodeRequire { // @TODO webpack patch
 	context?: any;
 }
 
