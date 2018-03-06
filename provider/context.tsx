@@ -25,11 +25,7 @@ class ContextProvider extends React.Component<IProps> {
 			patchedTheme.context.metrics.text = theme.metrics.text.primary;
 		}
 
-		if (light && !dark) {
-			patchedTheme.context.text.color = theme.palette.text.light;
-		} else {
-			patchedTheme.context.text.color = theme.palette.text.dark;
-		}
+		patchedTheme.context.text.color = light && !dark ? theme.palette.text.light : theme.palette.text.dark;
 
 		patchedTheme.hash = Date.now();
 

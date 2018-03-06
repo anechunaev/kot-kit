@@ -2,7 +2,6 @@ import { withStyles } from 'provider';
 import styles from './style';
 import View, { IOuterProps as IViewProps } from './view';
 
-export interface IProps extends IViewProps {
-}
+export type IProps = IViewProps;
 
 export default withStyles(styles)(View);

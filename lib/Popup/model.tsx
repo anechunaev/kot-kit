@@ -26,11 +26,15 @@ class PopupModel extends React.Component<IInnerProps, IState> {
 
 	private popupRef = (node: HTMLElement) => {
 		this.popupElement = node;
-		this.props.popupRef && this.props.popupRef(node);
+		if (this.props.popupRef) {
+			this.props.popupRef(node);
+		}
 	}
 	private targetRef = (node: HTMLElement) => {
 		this.targetElement = node;
-		this.props.targetRef && this.props.targetRef(node);
+		if (this.props.targetRef) {
+			this.props.targetRef(node);
+		}
 	}
 
 	constructor(props: IInnerProps) {

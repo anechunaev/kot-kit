@@ -31,7 +31,15 @@
         "allowBind": false
       }
     ],
-    "react/jsx-space-before-closing": [ "warn", "always" ],
+    "react/jsx-tag-spacing": [
+      "warn",
+      {
+        "closingSlash": "always",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "allow"
+      }
+    ],
     "react/jsx-key": "error",
     "react/no-did-update-set-state": "error",
     "react/self-closing-comp": "warn",

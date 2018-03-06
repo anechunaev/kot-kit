@@ -8,8 +8,8 @@
   "types": "dist/lib.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.js && npm run dts",
-    "build-dev": "cross-env NODE_ENV=development webpack --config config/webpack.js --mode development",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.js && npm run dts && npm run lint",
+    "build-dev": "cross-env NODE_ENV=development webpack --config config/webpack.js --mode development && npm run lint",
     "lint": "eslint -c config/linters/eslint.json lib/ && tslint -c config/linters/tslint.json --project tsconfig.json --exclude \"**/showcase/**/*.*\"",
     "showcase": "cd showcase && npm start",
     "dts": "node_modules/dts-generator/bin/dts-generator --name @tutu/order --out dist/lib.d.ts --project /Users/nechunaev/sandbox/kot-kit --main @tutu/order/entries/lib"
@@ -43,8 +43,8 @@
     "cross-env": "^5.0.5",
     "deepmerge": "^2.0.1",
     "dts-generator": "^2.1.0",
-    "eslint": "^4.7.2",
-    "eslint-plugin-react": "^7.3.0",
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0",
     "jss": "^9.3.3",
     "jss-preset-default": "^4.0.1",
     "marked": "^0.3.12",

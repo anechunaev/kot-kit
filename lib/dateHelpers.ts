@@ -18,7 +18,7 @@ export const simpleParseDateString = {
 		d.setDate(+DD);
 		d.setMonth(+MM - 1);
 		d.setFullYear(+YYYY);
-		d.setTime( d.getTime() + d.getTimezoneOffset() * 60000 );
+		d.setTime(d.getTime() + d.getTimezoneOffset() * 60000);
 		return d;
 	},
 	en: (s: string) => {
@@ -31,7 +31,7 @@ export const simpleParseDateString = {
 		d.setDate(+DD);
 		d.setMonth(+MM - 1);
 		d.setFullYear(+YYYY);
-		d.setTime( d.getTime() + d.getTimezoneOffset() * 60000 );
+		d.setTime(d.getTime() + d.getTimezoneOffset() * 60000);
 		return d;
 	},
 }
@@ -70,7 +70,7 @@ export function getDatesForMonth(monthNumber: number): Date[] {
 
 	let prevDate = new Date(firstDate);
 
-	while(prevDate.getMonth() === monthNumber) {
+	while (prevDate.getMonth() === monthNumber) {
 		dates.push(prevDate);
 
 		prevDate = new Date(prevDate.setDate(prevDate.getDate() + 1));

@@ -7,25 +7,22 @@ export type CustomLink = HTMLSpanElement | HTMLAnchorElement;
 
 export interface IOuterProps extends
 	IBaseOuterProps<CustomLink>,
-	IWithIcons
-{
+	IWithIcons {
 	pseudo?: boolean;
 }
 
 export interface IInnerProps extends IBaseInnerProps, IOuterProps {
 }
 
-const getChildren = ({ iconSlotLeft, iconSlotRight, classes, children }: IInnerProps & React.Props<CustomLink> ) => {
-	return [
-		!!iconSlotLeft && (
-			<div key="slotLeft" className={classes.slotLeft}>{iconSlotLeft}</div>
-		),
-		children,
-		!!iconSlotRight && (
-			<div key="slotRight" className={classes.slotRight}>{iconSlotRight}</div>
-		),
-	]
-}
+const getChildren = ({ iconSlotLeft, iconSlotRight, classes, children }: IInnerProps & React.Props<CustomLink>) => [
+	!!iconSlotLeft && (
+		<div key="slotLeft" className={classes.slotLeft}>{iconSlotLeft}</div>
+	),
+	children,
+	!!iconSlotRight && (
+		<div key="slotRight" className={classes.slotRight}>{iconSlotRight}</div>
+	),
+];
 
 class InputView extends React.PureComponent<IInnerProps> {
 	public static defaultProps = {

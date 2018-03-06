@@ -41,19 +41,21 @@ const MODIFIERS = {
 
 
 const Weekday = ({ weekday, className, locale }: any) => (
-	<div className={cn(className, {
-		'DayPicker-Weekday--weekend': weekday === 0 || weekday === 6,
-	})}>
+	<div
+		className={cn(className, {
+			'DayPicker-Weekday--weekend': weekday === 0 || weekday === 6,
+		})}
+	>
 		{WEEKDAYS_SHORT[locale][weekday]}
 	</div>
 );
 
 const Navbar = ({ onPreviousClick, onNextClick, className }: any) => (
 	<div className={className}>
-		<span onClick={() => onPreviousClick()} className="DayPicker-NavButton DayPicker-NavButton--prev">
+		<span onClick={onPreviousClick} className="DayPicker-NavButton DayPicker-NavButton--prev">
 			<Icon size={15} name="arrow-simple" />
 		</span>
-		<span onClick={() => onNextClick()} className="DayPicker-NavButton DayPicker-NavButton--next">
+		<span onClick={onNextClick} className="DayPicker-NavButton DayPicker-NavButton--next">
 			<Icon size={15} name="arrow-simple" />
 		</span>
 	</div>

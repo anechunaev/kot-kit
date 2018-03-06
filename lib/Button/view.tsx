@@ -11,8 +11,7 @@ import {
 export interface IOuterProps extends
 	IBaseOuterProps<HTMLButtonElement | HTMLAnchorElement>,
 	IClickableProps<HTMLButtonElement | HTMLAnchorElement>,
-	IWithIcons
-{
+	IWithIcons {
 	href?: string;
 	target?: string;
 	disabled?: boolean;

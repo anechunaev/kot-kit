@@ -7,8 +7,7 @@ import { IBaseInnerProps, IBaseOuterProps, IEditableProps } from '../base';
 export interface IOuterProps extends
 	IBaseOuterProps<HTMLInputElement>,
 	IEditableProps<HTMLInputElement>,
-	IWithIcons
-{
+	IWithIcons {
 	invalid?: boolean;
 	expanded?: boolean;
 	type?: 'text' | 'password' | 'email' | 'tel' | 'number';
